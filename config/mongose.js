@@ -3,10 +3,9 @@
 "use strict";
 
 var mongoose = require("mongoose");
+const Url = require("./urlMongodb");
 
-const uri =
-  "mongodb+srv://aliefadityanugraha:ykXmjoXf63EDMKKH@clusterdb.z4uuokm.mongodb.net/aliefaditya?retryWrites=true&w=majority";
-
+const uri = Url;
 mongoose
   .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("Connected to database in MongoDB server..."))
