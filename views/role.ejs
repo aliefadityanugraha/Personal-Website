@@ -1,0 +1,84 @@
+<!-- @format -->
+<link rel="stylesheet" href="/public/css/insert.css" />
+<div class="formbold-main-wrapper">
+  <div class="formbold-form-wrapper">
+    <div class="formbold-form-title">
+      <h3>All Role</h3>
+      <br />
+      <% role.forEach(e => { %>
+      <div class="alert">
+        <span
+          class="closebtn"
+          onclick="this.parentElement.style.display='none';"
+          >&times;</span
+        >
+        <%= e.role %>
+      </div>
+      <style>
+        .alert {
+          padding: 15px 20px;
+          background-color: #7536f4;
+          color: white;
+          margin-bottom: 15px;
+          border-radius: 10px;
+        }
+        .closebtn {
+          margin-left: 15px;
+          color: white;
+          font-weight: bold;
+          float: right;
+          font-size: 22px;
+          line-height: 20px;
+          cursor: pointer;
+          transition: 0.3s;
+        }
+        .closebtn:hover {
+          color: black;
+        }
+      </style>
+      <% }) %>
+    </div>
+    <br />
+    <h3>Add Role</h3>
+    <br />
+    <form action="/insert-role" method="POST">
+      <div>
+        <label for="role" class="formbold-form-label">Role</label>
+        <input
+          type="text"
+          name="role"
+          id="role"
+          placeholder="Enter new role"
+          class="formbold-form-input"
+          required
+        />
+      </div>
+      <br />
+      <div>
+        <label for="roleid" class="formbold-form-label">Role Id</label>
+        <input
+          type="text"
+          name="roleId"
+          id="roleid"
+          placeholder="Enter new role"
+          class="formbold-form-input"
+          required
+        />
+      </div>
+      <br />
+      <div>
+        <label for="description" class="formbold-form-label">Description</label>
+        <textarea
+          rows="6"
+          name="description"
+          id="description"
+          placeholder="Type your description"
+          class="formbold-form-input"
+          required
+        ></textarea>
+      </div>
+      <br />
+      <button class="formbold-btn">Add Role</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,109 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Development</title>
+  </head>
+  <body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        overflow-x: hidden;
+      }
+    </style>
+    <link rel="stylesheet" href="/public/css/navbar.css" />
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggler" data-toggle="open-navbar1">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <a href="/">
+            <h4>Aliefaditya<span>nugraha</span></h4>
+          </a>
+        </div>
+
+        <div class="navbar-menu" id="open-navbar1">
+          <ul class="navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li class=""><a href="/">About</a></li>
+            <li class="navbar-dropdown">
+              <a
+                href="#"
+                class="dropdown-toggler"
+                data-dropdown="my-dropdown-id"
+              >
+                Categories <i class="fa fa-angle-down"></i>
+              </a>
+              <ul class="dropdown" id="my-dropdown-id">
+                <li><a href="#">Actions</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="separator"></li>
+                <li><a href="#">Seprated link</a></li>
+                <li class="separator"></li>
+                <li><a href="#">One more seprated link.</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <!-- dropdown profile -->
+        <link rel="stylesheet" href="/public/css/dropdown.css" />
+        <div class="select-menu">
+          <div class="select-btn">
+            <img src="/public/img/profile.jpg" alt="profile" class="profile" />
+          </div>
+          <div class="auth" id="auth"></div>
+        </div>
+        <script>
+          const optionMenu = document.querySelector(".select-menu"),
+            selectBtn = optionMenu.querySelector(".select-btn"),
+            options = optionMenu.querySelectorAll(".option"),
+            sBtn_text = optionMenu.querySelector(".sBtn-text");
+
+          selectBtn.addEventListener("click", () =>
+            optionMenu.classList.toggle("active")
+          );
+
+          options.forEach((option) => {
+            option.addEventListener("click", () => {
+              let selectedOption =
+                option.querySelector(".option-text").innerText;
+              sBtn_text.innerText = selectedOption;
+
+              optionMenu.classList.remove("active");
+            });
+          });
+        </script>
+        <!-- dropdown profile end -->
+      </div>
+    </nav>
+    <script src="/public/js/navbar.js"></script>
+    <%- body %>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="container">
+      <link rel="stylesheet" href="/public/css/footer.css" />
+      <footer>
+        <hr />
+        <p>&copy Copyright By Alief Aditya 2023</p>
+      </footer>
+    </div>
+    <script src="/public/js/ajax.js"></script>
+  </body>
+</html>

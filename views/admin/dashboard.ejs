@@ -1,0 +1,116 @@
+<!-- @format -->
+
+<div class="containerx">
+  <div class="box">
+    <b>User Active</b> <br />
+    <h1 class="number-counter"><%- (data.user).length %></h1>
+  </div>
+  <div class="box">
+    <b>Posts</b> <br />
+    <h1 class="number-counter"><%- (data.post).length %></h1>
+  </div>
+  <div class="box">
+    <b>Categories</b> <br />
+    <h1 class="number-counter"><%- (data.category).length %></h1>
+  </div>
+  <div class="box">
+    <b>Roles</b> <br />
+    <h1 class="number-counter"><%- (data.role).length %></h1>
+  </div>
+</div>
+<div class="containerx">
+  <div class="box-bottom">
+    <b><h3>List of User Active</h3></b>
+    <ul class="log-list">
+      <% data.user.forEach(e => { %>
+      <li><%- e.email %></li>
+      <hr />
+      <% }) %>
+    </ul>
+  </div>
+  <div class="box-bottom">
+    <b><h3>Log Application</h3></b>
+    <ul class="log-list">
+      <li>GET http://localhost:5000</li>
+      <hr />
+      <li>GET http://localhost:5000</li>
+      <hr />
+      <li>GET http://localhost:5000</li>
+      <hr />
+      <li>GET http://localhost:5000</li>
+      <hr />
+      <li>GET http://localhost:5000</li>
+      <hr />
+      <li>GET http://localhost:5000</li>
+      <hr />
+    </ul>
+  </div>
+</div>
+<div class="containerx">
+  <div class="box-bottom">
+    <b><h3>List of Posts</h3></b>
+    <ul class="log-list">
+      <% data.post.forEach(e => { %>
+      <li><%- e.title %></li>
+      <hr />
+      <% }) %>
+    </ul>
+  </div>
+  <div class="box-bottom">
+    <b><h3>List of Category</h3></b>
+    <ul class="log-list">
+      <% data.category.forEach(e => { %>
+      <li><%- e.category %></li>
+      <hr />
+      <% }) %>
+    </ul>
+    <br />
+    <b><h3>List of Role</h3></b>
+    <ul class="log-list">
+      <% data.role.forEach(e => { %>
+      <li><%- e.role %></li>
+      <hr />
+      <% }) %>
+    </ul>
+  </div>
+</div>
+
+<style>
+  .containerx {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: self-start;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0px;
+  }
+  .box {
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #6a64f1;
+    width: 20%;
+    height: 18vh;
+    color: #fff;
+    text-align: center;
+  }
+  .box-bottom {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ededed;
+    width: 41.3%;
+    height: auto;
+    color: #000;
+  }
+  .box-bottom b.h3 {
+    padding: 10px 0px;
+  }
+  .box-bottom ul li {
+    padding: 10px;
+    text-decoration: none;
+    list-style: none;
+  }
+  .number-counter {
+    font-size: 50px;
+  }
+</style>
