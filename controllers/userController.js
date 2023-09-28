@@ -16,12 +16,12 @@ const getHashedPassword = (password) => {
 module.exports = {
   login: (req, res) => {
     res.render("login", {
-      layout: "layouts/main-layout",
+      layout: "layouts/newlayout",
     });
   },
   signUp: (req, res) => {
     res.render("signup", {
-      layout: "layouts/main-layout",
+      layout: "layouts/newlayout",
     });
   },
   auth: (req, res) => {

@@ -8,7 +8,7 @@ module.exports = {
   insertView: async (req, res) => {
     const role = await Role.find();
     res.render("role", {
-      layout: "layouts/main-layout",
+      layout: "layouts/newadminlayout",
       role,
     });
   },

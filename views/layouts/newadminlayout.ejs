@@ -1,0 +1,148 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="Alief personal website" />
+    <meta name="author" content="Alief Aditya Nugraha" />
+    <title>Alief Aditya | Personal Blog</title>
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/public/css/unicons.css" />
+    <link rel="stylesheet" href="/public/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/public/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="/public/css/tooplate-style.css" />
+  </head>
+  <body>
+    <!-- MENU -->
+    <nav class="navbar navbar-expand-sm navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"
+          ><i class="uil uil-user"></i> ALIEF</a
+        >
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a href="/admin" class="nav-link"
+                ><span data-hover="About">Home</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="/insert-post" class="nav-link"
+                ><span data-hover="Posts">Posts</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="/insert-category" class="nav-link"
+                ><span data-hover="Category">Category</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="insert-role" class="nav-link"
+                ><span data-hover="Role">Role</span></a
+              >
+            </li>
+          </ul>
+
+          <ul class="navbar-nav">
+            <!-- dropdown -->
+            <link rel="stylesheet" href="/public/css/dropdown.css" />
+            <div class="select-menu">
+              <div class="select-btn">
+                <img
+                  src="/public/img/profile.jpg"
+                  alt="profile"
+                  class="profile"
+                />
+              </div>
+              <div class="auth" id="auth"></div>
+            </div>
+            <script>
+              const optionMenu = document.querySelector(".select-menu"),
+                selectBtn = optionMenu.querySelector(".select-btn"),
+                options = optionMenu.querySelectorAll(".option"),
+                sBtn_text = optionMenu.querySelector(".sBtn-text");
+
+              selectBtn.addEventListener("click", () =>
+                optionMenu.classList.toggle("active")
+              );
+
+              options.forEach((option) => {
+                option.addEventListener("click", () => {
+                  let selectedOption =
+                    option.querySelector(".option-text").innerText;
+                  sBtn_text.innerText = selectedOption;
+
+                  optionMenu.classList.remove("active");
+                });
+              });
+            </script>
+            <!-- dropdown end -->
+          </ul>
+
+          <ul class="navbar-nav ml-lg-auto">
+            <div class="ml-lg-4">
+              <div
+                class="color-mode d-lg-flex justify-content-center align-items-center"
+              >
+                <i class="color-mode-icon"></i>
+                Color mode
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <%- body %>
+
+    <!-- FOOTER -->
+    <footer class="footer py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-12">
+            <p class="copyright-text text-center">
+              Copyright &copy; 2019 Company Name . All rights reserved
+            </p>
+            <p class="copyright-text text-center">
+              Designed by
+              <a rel="nofollow" href="https://www.facebook.com/tooplate"
+                >Tooplate</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/public/js/jquery-3.3.1.min.js"></script>
+    <script src="/public/js/popper.min.js"></script>
+    <script src="/public/js/bootstrap.min.js"></script>
+    <script src="/public/js/Headroom.js"></script>
+    <script src="/public/js/jQuery.headroom.js"></script>
+    <script src="/public/js/owl.carousel.min.js"></script>
+    <script src="/public/js/smoothscroll.js"></script>
+    <script src="/public/js/custom.js"></script>
+    <!-- script ajax menu -->
+    <script src="/public/js/ajax.js"></script>
+  </body>
+</html>

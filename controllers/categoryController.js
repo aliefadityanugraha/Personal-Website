@@ -8,7 +8,7 @@ module.exports = {
   insertView: async (req, res) => {
     const category = await Category.find();
     res.render("category", {
-      layout: "layouts/main-layout",
+      layout: "layouts/newadminlayout",
       category,
     });
   },

@@ -10,8 +10,8 @@ const jwtConfig = require("../config/jwt");
 module.exports = {
   home: async (req, res) => {
     const posts = await Post.find();
-    res.render("home", {
-      layout: "layouts/landing-page",
+    res.render("newhome", {
+      layout: "layouts/newlayout",
       message: "ok",
       posts,
     });
@@ -21,7 +21,7 @@ module.exports = {
     const parse = jwt.verify(session.token, jwtConfig.SECRET_KEY);
     const data = await User.findOne({ email: parse.user.email });
     res.render("account", {
-      layout: "layouts/main-layout",
+      layout: "layouts/newlayout",
       data,
     });
   },

@@ -16,7 +16,7 @@ module.exports = {
   inserView: async (req, res) => {
     const category = await Category.find();
     res.render("insert-post", {
-      layout: "layouts/main-layout",
+      layout: "layouts/newadminlayout",
       message: "ok",
       category,
     });

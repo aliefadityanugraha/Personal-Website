@@ -16,7 +16,7 @@ module.exports = {
       role: await Role.find(),
     };
     res.render("admin/dashboard", {
-      layout: "layouts/admin-layout",
+      layout: "layouts/newadminlayout",
       data,
     });
   },

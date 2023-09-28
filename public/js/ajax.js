@@ -39,6 +39,7 @@ const isLoginAdmin = `<ul class="options">
 xhr.onreadystatechange = function () {
   if (xhr.readyState == 4 && xhr.status == 200) {
     var resultSearch = JSON.parse(xhr.responseText);
+    console.log(resultSearch);
     if (resultSearch == false) {
       authInfo.innerHTML = notLogin;
     } else if (resultSearch.user.role == 2) {
