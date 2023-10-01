@@ -1,16 +1,13 @@
 /** @format */
 
-.select-menu .select-btn {
-  height: 40px;
-  width: 40px;
-  background: #000;
-  padding: 10px;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+.select-menu {
+  box-shadow: 0 0 5px rgba(5, 5, 5, 0.5);
 }
-.select-menu .select-btn .profile {
+.select-menu .select-btn {
+  cursor: pointer;
+  border-radius: 50px;
+}
+.select-menu .select-btn img {
   width: 40px;
 }
 .select-menu .options {

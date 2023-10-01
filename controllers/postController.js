@@ -14,11 +14,13 @@ module.exports = {
     });
   },
   inserView: async (req, res) => {
+    const posts = await Post.find();
     const category = await Category.find();
     res.render("insert-post", {
       layout: "layouts/newadminlayout",
       message: "ok",
       category,
+      posts,
     });
   },
   insert: (req, res) => {

@@ -322,6 +322,10 @@ strong {
   color: #ffffff;
 }
 
+.dark-mode .card {
+  background: #0c0c0d;
+}
+
 .timeline-wrapper {
   position: relative;
   padding: 22px 0;

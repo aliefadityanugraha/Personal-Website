@@ -38,14 +38,14 @@
      <div class="container">
        <div class="row">
         <div class="col-lg-8 mx-auto text-center">
-          <h2>Notes</h2>
+          <h2 class="py-4">Notes</h2>
         </div>
        </div>
        <div class="row justify-content-center align-items-center g-2">
         <% posts.forEach(e => { %>
-         <div class="col-3">
+         <div class="col-lg-3 col-6">
           <div class="card">
-            <img src="<%= e.image %>" class="card-img-top" alt="..." />
+            <img src="<%= e.image %>" class="ratio ratio-4x3 img-fluid" alt="Gambar <%= e.title %>" />
              <div class="card-body">
               <h5 class="card-title"><%= e.title %></h5>
                 <p class="card-text content-hidden">

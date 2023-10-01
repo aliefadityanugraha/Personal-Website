@@ -29,7 +29,7 @@
             name="title"
             id="title"
             placeholder="Title of your post"
-            class="formbold-form-input"
+            class="formbold-form-input input-title"
             required
           />
         </div>
@@ -111,78 +111,6 @@
             This post wil be save and go to public. Please check again before
             you public tihi post
           </p>
-
-          <!-- <div>
-            <button class="formbold-confirm-btn active">
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 22 22"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  cx="11"
-                  cy="11"
-                  r="10.5"
-                  fill="white"
-                  stroke="#DDE3EC"
-                />
-                <g clip-path="url(#clip0_1667_1314)">
-                  <path
-                    d="M9.83343 12.8509L15.1954 7.48828L16.0208 8.31311L9.83343 14.5005L6.12109 10.7882L6.94593 9.96336L9.83343 12.8509Z"
-                    fill="#536387"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_1667_1314">
-                    <rect
-                      width="14"
-                      height="14"
-                      fill="white"
-                      transform="translate(4 4)"
-                    />
-                  </clipPath>
-                </defs>
-              </svg>
-              Yes! I want it.
-            </button>
-
-            <button class="formbold-confirm-btn">
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 22 22"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  cx="11"
-                  cy="11"
-                  r="10.5"
-                  fill="white"
-                  stroke="#DDE3EC"
-                />
-                <g clip-path="url(#clip0_1667_1314)">
-                  <path
-                    d="M9.83343 12.8509L15.1954 7.48828L16.0208 8.31311L9.83343 14.5005L6.12109 10.7882L6.94593 9.96336L9.83343 12.8509Z"
-                    fill="#536387"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_1667_1314">
-                    <rect
-                      width="14"
-                      height="14"
-                      fill="white"
-                      transform="translate(4 4)"
-                    />
-                  </clipPath>
-                </defs>
-              </svg>
-              No! I don’t want it.
-            </button>
-          </div> -->
         </div>
       </div>
 
@@ -215,6 +143,71 @@
     </form>
   </div>
 </div>
+
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css"
+/>
+<section>
+  <div class="container">
+    <!-- datatables -->
+    <table class="table table-stripped table-hover datatab">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Id</th>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% let number=1; posts.forEach(e => { %>
+        <tr>
+          <td><%= number++ %></td>
+          <td><%= e.id %></td>
+          <td><%= e.title %></td>
+          <td><%= e.category %></td>
+          <td>
+            <button
+              class="btn btn-warning btn-edit"
+              onclick="edit(`<%- number-1 %>`)"
+            >
+              Edit
+            </button>
+            <button class="btn btn-danger btn-delete">Delete</button>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <!-- datatable end -->
+  </div>
+</section>
+<script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $(".datatable").DataTable();
+  });
+</script>
+<div class="data-posts" hidden>
+  <% posts.forEach(element => { %> { "_id": "<%= element._id %>", "title": "<%=
+  element.title %>", "category": "<%= element.category %>", "author": "<%=
+  element.author %>", "image": "<%= element.image %>", "content": "<% const data
+  = element.content; const splitData = data.split("\n").join(''); %> <%=
+  splitData %>", "created_at": "<%= element.created_at %>", "updated_at":"<%=
+  element.updated_at %>" }, <% }) %>
+</div>
+<script>
+  function edit(target) {
+    const data = document.querySelector(".data-posts");
+
+    // console.log(splitData.join(","));
+    const inputTitle = document.querySelector(".input-title");
+    // inputTitle.value = data.target;
+  }
+</script>
 <script>
   const stepMenuOne = document.querySelector(".formbold-step-menu1");
   const stepMenuTwo = document.querySelector(".formbold-step-menu2");

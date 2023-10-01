@@ -2,6 +2,7 @@
 
 var xhr = new XMLHttpRequest();
 const authInfo = document.getElementById("auth");
+const profile = document.querySelector(".profile");
 
 const notLogin = `<ul class="options">
             <li class="option">
@@ -44,8 +45,10 @@ xhr.onreadystatechange = function () {
       authInfo.innerHTML = notLogin;
     } else if (resultSearch.user.role == 2) {
       authInfo.innerHTML = isLoginAdmin;
+      profile.src = resultSearch.user.profilePicture;
     } else {
       authInfo.innerHTML = isLogin;
+      profile.src = resultSearch.user.profilePicture;
     }
   }
 };
