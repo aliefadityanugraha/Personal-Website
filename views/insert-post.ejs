@@ -55,7 +55,7 @@
               name="author"
               placeholder="Alief Aditya Nugraha"
               id="author"
-              class="formbold-form-input"
+              class="formbold-form-input input-author"
               value="Alief Aditya Nugraha"
               required
               readonly
@@ -70,9 +70,9 @@
           <input
             type="url"
             name="img"
-            id="address"
+            id="img-address"
             placeholder="https://"
-            class="formbold-form-input"
+            class="formbold-form-input input-image"
             required
           />
         </div>
@@ -84,7 +84,7 @@
             name="content"
             id="content"
             placeholder="Type your content"
-            class="formbold-form-input"
+            class="formbold-form-input input-content"
             required
           ></textarea>
         </div>
@@ -116,7 +116,7 @@
 
       <div class="formbold-form-btn-wrapper">
         <button class="formbold-back-btn">Back</button>
-
+        <button class="btn btn-danger" onclick="clearInput()">Clear</button>
         <button class="formbold-btn" type="submit">
           Next Step
           <svg
@@ -152,7 +152,7 @@
 <section>
   <div class="container">
     <!-- datatables -->
-    <table class="table table-stripped table-hover datatab">
+    <table class="table table-stripped table-hover datatable">
       <thead>
         <tr>
           <th>No</th>
@@ -172,7 +172,7 @@
           <td>
             <button
               class="btn btn-warning btn-edit"
-              onclick="edit(`<%- number-1 %>`)"
+              onclick="edit(`<%- number-2 %>`)"
             >
               Edit
             </button>
@@ -191,21 +191,51 @@
     $(".datatable").DataTable();
   });
 </script>
-<div class="data-posts" hidden>
-  <% posts.forEach(element => { %> { "_id": "<%= element._id %>", "title": "<%=
-  element.title %>", "category": "<%= element.category %>", "author": "<%=
-  element.author %>", "image": "<%= element.image %>", "content": "<% const data
-  = element.content; const splitData = data.split("\n").join(''); %> <%=
-  splitData %>", "created_at": "<%= element.created_at %>", "updated_at":"<%=
-  element.updated_at %>" }, <% }) %>
+<div class="data" hidden>
+  <% posts.forEach(e => { %>
+  <div class="post">
+    <div class="id"><%= e._id %></div>
+    <div class="title"><%= e.title %></div>
+    <div class="category"><%= e.category %></div>
+    <div class="image"><%= e.image %></div>
+    <div class="content"><%= e.content %></div>
+    <div class="author"><%= e.author %></div>
+  </div>
+  <% }) %>
 </div>
 <script>
-  function edit(target) {
-    const data = document.querySelector(".data-posts");
+  // input selector
+  const inputTitle = document.querySelector(".input-title");
+  const inputCategory = document.querySelectorAll(".option");
+  const inputImage = document.querySelector(".input-image");
+  const inputContent = document.querySelector(".input-content");
+  const inputAuthor = document.querySelector(".input-author");
 
-    // console.log(splitData.join(","));
-    const inputTitle = document.querySelector(".input-title");
-    // inputTitle.value = data.target;
+  function edit(target) {
+    console.log(target);
+
+    // data
+    const id = document.querySelectorAll(".id");
+    const title = document.querySelectorAll(".title");
+    const category = document.querySelectorAll(".category");
+    const image = document.querySelectorAll(".image");
+    const content = document.querySelectorAll(".content");
+    const author = document.querySelectorAll(".author");
+
+    // replace
+    inputTitle.value = title[target].innerHTML;
+    // inputCategory.value = category[target].innerHTML;
+    inputImage.value = image[target].innerHTML;
+    inputContent.value = content[target].innerHTML;
+    inputAuthor.value = author[target].innerHTML;
+  }
+
+  function clearInput() {
+    inputTitle.value = "";
+    // inputCategory.value = category[target].innerHTML;
+    inputImage.value = "";
+    inputContent.value = "";
+    inputAuthor.value = "";
   }
 </script>
 <script>
