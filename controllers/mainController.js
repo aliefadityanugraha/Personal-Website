@@ -9,7 +9,7 @@ const jwtConfig = require("../config/jwt");
 
 module.exports = {
   home: async (req, res) => {
-    const posts = await Post.find().sort({ createdAt: 1 }).limit(4);
+    const posts = await Post.find().sort({ _id: -1 }).limit(4);
     res.status(200).render("newhome", {
       layout: "layouts/newlayout",
       message: "ok",

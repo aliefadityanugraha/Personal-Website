@@ -6,6 +6,7 @@ const User = require("../models/userModel");
 const jwtConfig = require("../config/jwt");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
+var flash = require("connect-flash");
 
 const getHashedPassword = (password) => {
   const sha256 = crypto.createHash("sha256");
@@ -16,12 +17,14 @@ const getHashedPassword = (password) => {
 module.exports = {
   login: (req, res) => {
     res.status(200).render("login", {
-      layout: "layouts/newlayout",
+      layout: "layouts/authlayout",
+      message: req.flash("message"),
     });
   },
   signUp: (req, res) => {
     res.status(200).render("signup", {
-      layout: "layouts/newlayout",
+      layout: "layouts/authlayout",
+      message: req.flash("message"),
     });
   },
   auth: (req, res) => {
@@ -35,19 +38,30 @@ module.exports = {
       if (query.length === 0) {
         const data = new User({
           email: req.body.email,
-          name: "jono",
+          name: "Unknown",
           role: 1,
           password: getHashedPassword(req.body.password),
           biography: "-",
         });
-        data
+        await data
           .save()
-          .then(() => res.redirect("/login"))
+          .then(() => {
+            req.flash(
+              "message",
+              "Sign Up Success. Please Login into your account"
+            );
+            res.status(200).redirect("/login");
+          })
           .catch((err) => console.log(err));
       } else {
-        console.log("Found Match");
-        res.redirect("/");
+        console.log("User is Alredy Exist");
+        req.flash("message", "User is Alredy Exist");
+        res.status(200).redirect("/signup");
       }
+    } else {
+      console.log("Password Not Match");
+      req.flash("message", "Password Not Match");
+      res.status(200).redirect("/signup");
     }
   },
   authetication: async (req, res) => {
@@ -70,16 +84,20 @@ module.exports = {
         );
         const session = req.session;
         session.token = token;
-        res.redirect("/");
+        res.status(200).redirect("/");
       } else {
-        res.status(200).send("Password not match");
+        // res.status(200).send("Password not match");
+        req.flash("message", "Password not match");
+        res.status(200).redirect("/login");
       }
     } else {
-      res.status(200).send("User Not Found");
+      // res.status(200).send("User Not Found");
+      req.flash("message", "User not Found");
+      res.status(200).redirect("/login");
     }
   },
   logout: (req, res) => {
     req.session.destroy();
-    res.redirect("/");
+    res.status(200).redirect("/");
   },
 };

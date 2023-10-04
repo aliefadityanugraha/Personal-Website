@@ -24,25 +24,13 @@
       <div class="formbold-form-step-1 active">
         <div>
           <label for="title" class="formbold-form-label"> Title </label>
-          <input
-            type="text"
-            name="title"
-            id="title"
-            placeholder="Title of your post"
-            class="formbold-form-input input-title"
-            required
-          />
+          <input type="text" name="title" id="title" placeholder="Title of your post" class="formbold-form-input input-title" required />
         </div>
         <br />
         <div class="formbold-input-flex">
           <div>
             <label for="category" class="formbold-form-label"> Category </label>
-            <select
-              name="category"
-              id="category"
-              class="formbold-form-input"
-              required
-            >
+            <select name="category" id="category" class="formbold-form-input" required>
               <% category.forEach(e => { %>
               <option value="<%= e.category %>"><%= e.category %></option>
               <% }) %>
@@ -50,43 +38,18 @@
           </div>
           <div>
             <label for="author" class="formbold-form-label"> Author </label>
-            <input
-              type="text"
-              name="author"
-              placeholder="Alief Aditya Nugraha"
-              id="author"
-              class="formbold-form-input input-author"
-              value="Alief Aditya Nugraha"
-              required
-              readonly
-            />
+            <input type="text" name="author" placeholder="Alief Aditya Nugraha" id="author" class="formbold-form-input input-author" value="Alief Aditya Nugraha" required readonly />
           </div>
         </div>
 
         <div>
-          <label for="img-address" class="formbold-form-label"
-            >Image Address</label
-          >
-          <input
-            type="url"
-            name="img"
-            id="img-address"
-            placeholder="https://"
-            class="formbold-form-input input-image"
-            required
-          />
+          <label for="img-address" class="formbold-form-label">Image Address</label>
+          <input type="url" name="img" id="img-address" placeholder="https://" class="formbold-form-input input-image" required />
         </div>
         <br />
         <div>
           <label for="content" class="formbold-form-label">Content</label>
-          <textarea
-            rows="6"
-            name="content"
-            id="content"
-            placeholder="Type your content"
-            class="formbold-form-input input-content"
-            required
-          ></textarea>
+          <textarea rows="6" name="content" id="content" placeholder="Type your content" class="formbold-form-input input-content" required></textarea>
         </div>
       </div>
 
@@ -94,13 +57,7 @@
       <div class="formbold-form-step-2">
         <div>
           <label for="message" class="formbold-form-label"> Message </label>
-          <textarea
-            rows="6"
-            name="message"
-            id="message"
-            placeholder="Type your message"
-            class="formbold-form-input"
-          ></textarea>
+          <textarea rows="6" name="message" id="message" placeholder="Type your message" class="formbold-form-input"></textarea>
         </div>
       </div>
 
@@ -119,18 +76,9 @@
         <button class="btn btn-danger" onclick="clearInput()">Clear</button>
         <button class="formbold-btn" type="submit">
           Next Step
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_1675_1807)">
-              <path
-                d="M10.7814 7.33312L7.20541 3.75712L8.14808 2.81445L13.3334 7.99979L8.14808 13.1851L7.20541 12.2425L10.7814 8.66645H2.66675V7.33312H10.7814Z"
-                fill="white"
-              />
+              <path d="M10.7814 7.33312L7.20541 3.75712L8.14808 2.81445L13.3334 7.99979L8.14808 13.1851L7.20541 12.2425L10.7814 8.66645H2.66675V7.33312H10.7814Z" fill="white" />
             </g>
             <defs>
               <clipPath id="clip0_1675_1807">
@@ -144,11 +92,7 @@
   </div>
 </div>
 
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css"
-/>
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css" />
 <section>
   <div class="container">
     <!-- datatables -->
@@ -170,10 +114,7 @@
           <td><%= e.title %></td>
           <td><%= e.category %></td>
           <td>
-            <button
-              class="btn btn-warning btn-edit"
-              onclick="edit(`<%- number-2 %>`)"
-            >
+            <button class="btn btn-warning btn-edit" onclick="edit(`<%- number-2 %>`)">
               Edit
             </button>
             <button class="btn btn-danger btn-delete">Delete</button>
@@ -187,7 +128,7 @@
 </section>
 <script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
 <script>
-  $(document).ready(function () {
+  $(document).ready(function() {
     $(".datatable").DataTable();
   });
 </script>
@@ -250,7 +191,7 @@
   const formSubmitBtn = document.querySelector(".formbold-btn");
   const formBackBtn = document.querySelector(".formbold-back-btn");
 
-  formSubmitBtn.addEventListener("click", function (event) {
+  formSubmitBtn.addEventListener("click", function(event) {
     event.preventDefault();
     if (stepMenuOne.className == "formbold-step-menu1 active") {
       event.preventDefault();
@@ -262,7 +203,7 @@
       stepTwo.classList.add("active");
 
       formBackBtn.classList.add("active");
-      formBackBtn.addEventListener("click", function (event) {
+      formBackBtn.addEventListener("click", function(event) {
         event.preventDefault();
 
         stepMenuOne.classList.add("active");

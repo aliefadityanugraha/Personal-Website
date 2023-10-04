@@ -3,10 +3,10 @@
 <div class="container py-lg-5">
   <div class="row py-4">
     <div class="col-lg-4 col-12">
-      <div class="profile-card card">
+      <div class="profile-card">
         <header>
           <!-- here’s the avatar -->
-          <a href="#">
+          <a href="<%= data.profilePicture %>" target="_blank">
             <img src="<%= data.profilePicture %>" />
           </a>
           <!-- the username -->
@@ -50,26 +50,41 @@
         <button class="btn btn-danger">Delete Account</button>
       </div>
       <!-- action menu -->
-
       <div class="modal">
-        <div class="modal-content">
-          <span class="close-button">&times;</span>
-          <form
-            action="/profile-picture"
-            method="post"
-            enctype="multipart/form-data"
-          >
-            <input
-              type="file"
-              accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*"
-              name="profile"
-              id="profile"
-            />
-            <button class="formbold-btn" type="submit">Change</button>
-          </form>
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Upload Picture Profile</h5>
+              <span class="close-button btn-close">&times;</span>
+            </div>
+            <form
+              action="/profile-picture"
+              method="post"
+              enctype="multipart/form-data"
+            >
+              <div class="modal-body">
+                <div class="input-group mb-3">
+                  <label class="input-group-text" for="profile">Upload</label>
+                  <input
+                    type="file"
+                    class="form-control"
+                    accept=".jpg, .png,
+                .jpeg, .gif, .bmp, .tif, .tiff|image/*"
+                    name="profile"
+                    id="profile"
+                  />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary">
+                  Save changes
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-      <link rel="stylesheet" href="/public/css/formfile.css" />
+
       <style>
         .modal {
           position: fixed;
@@ -91,7 +106,6 @@
           transform: translate(-50%, -50%);
           background-color: white;
           padding: 20px;
-          width: 24rem;
           border-radius: 10px;
         }
         .close-button {
@@ -149,7 +163,7 @@
           />
         </div>
 
-        <button class="formbold-btn" type="submit">Update</button>
+        <button class="btn btn-success" type="submit">Save</button>
       </form>
     </div>
   </div>
