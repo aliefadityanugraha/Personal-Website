@@ -8,15 +8,15 @@ const Category = require("../models/categoryModel");
 module.exports = {
   read: async (req, res) => {
     const post = await Post.findOne({ _id: req.params._id });
-    res.render("read", {
-      layout: "layouts/main-layout",
+    res.status(200).render("read", {
+      layout: "layouts/newlayout",
       post,
     });
   },
   inserView: async (req, res) => {
     const posts = await Post.find();
     const category = await Category.find();
-    res.render("insert-post", {
+    res.status(200).render("insert-post", {
       layout: "layouts/newadminlayout",
       message: "ok",
       category,

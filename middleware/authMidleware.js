@@ -9,7 +9,7 @@ module.exports = {
   isLogin: (req, res, next) => {
     const session = req.session;
     if (!session.token) {
-      console.log("session not found");
+      console.log("Session not found");
       res.redirect("/login");
     } else {
       jwt.verify(session.token, jwtConfig.SECRET_KEY);

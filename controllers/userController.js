@@ -15,17 +15,17 @@ const getHashedPassword = (password) => {
 
 module.exports = {
   login: (req, res) => {
-    res.render("login", {
+    res.status(200).render("login", {
       layout: "layouts/newlayout",
     });
   },
   signUp: (req, res) => {
-    res.render("signup", {
+    res.status(200).render("signup", {
       layout: "layouts/newlayout",
     });
   },
   auth: (req, res) => {
-    res.render("auth", {
+    res.status(200).render("auth", {
       layout: "layouts/landing-page",
     });
   },
@@ -38,7 +38,7 @@ module.exports = {
           name: "jono",
           role: 1,
           password: getHashedPassword(req.body.password),
-          biography: "no biography",
+          biography: "-",
         });
         data
           .save()
@@ -51,11 +51,11 @@ module.exports = {
     }
   },
   authetication: async (req, res) => {
-    const hashedPass = getHashedPassword(req.body.password);
+    const hashedPassword = getHashedPassword(req.body.password);
     const query = await User.find({ email: req.body.email }).exec();
 
     if (query.length === 1) {
-      if (hashedPass === query[0].password) {
+      if (hashedPassword === query[0].password) {
         const token = jwt.sign(
           {
             user: {
@@ -63,7 +63,7 @@ module.exports = {
               name: query[0].name,
               profilePicture: query[0].profilePicture,
               role: query[0].role,
-              biography: "no biography",
+              biography: "-",
             },
           },
           jwtConfig.SECRET_KEY
@@ -72,10 +72,10 @@ module.exports = {
         session.token = token;
         res.redirect("/");
       } else {
-        res.send("Password not match");
+        res.status(200).send("Password not match");
       }
     } else {
-      res.send("User Not Found");
+      res.status(200).send("User Not Found");
     }
   },
   logout: (req, res) => {

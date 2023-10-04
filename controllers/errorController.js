@@ -4,8 +4,8 @@
 
 module.exports = {
   error404: (req, res) => {
-    res.render("err/404", {
-      layout: "layouts/main-layout",
+    res.status(404).render("err/404", {
+      layout: "layouts/newlayout",
     });
   },
 };

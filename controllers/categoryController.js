@@ -7,7 +7,7 @@ const Category = require("../models/categoryModel");
 module.exports = {
   insertView: async (req, res) => {
     const category = await Category.find();
-    res.render("category", {
+    res.status(200).render("category", {
       layout: "layouts/newadminlayout",
       category,
     });

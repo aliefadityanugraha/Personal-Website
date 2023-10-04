@@ -7,7 +7,7 @@ const Role = require("../models/roleModel");
 module.exports = {
   insertView: async (req, res) => {
     const role = await Role.find();
-    res.render("role", {
+    res.status(200).render("role", {
       layout: "layouts/newadminlayout",
       role,
     });

@@ -15,7 +15,7 @@ module.exports = {
       category: await Category.find(),
       role: await Role.find(),
     };
-    res.render("admin/dashboard", {
+    res.status(200).render("admin/dashboard", {
       layout: "layouts/newadminlayout",
       data,
     });

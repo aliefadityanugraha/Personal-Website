@@ -32,7 +32,7 @@
 //               <a href="/account" class="option-text">Account</a>
 //             </li>
 //             <li class="option">
-//               <a href="/admin" class="option-text">Admin Panel</a>
+//               <a href="/admin" class="option-text">Dashboard</a>
 //             </li>
 //             <li class="option">
 //               <a href="/logout" class="option-text">Logout</a>

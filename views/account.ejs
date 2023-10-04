@@ -1,182 +1,241 @@
 <!-- @format -->
-
-<div class="container">
-  <div class="banner"></div>
-  <div class="left col-lg-4">
-    <link rel="stylesheet" href="/public/css/signup.css" />
-    <div class="container-bottom">
-      <div class="form-left">
-        <div class="photo-left">
-          <img class="photo" src="<%= data.profilePicture %>" />
-        </div>
-        <div class="desc">
-          <h3 class="name"><%= data.name %></h3>
-          <p class="info"><%= data.email %></p>
+<link rel="stylesheet" href="/public/css/signup.css" />
+<div class="container py-lg-5">
+  <div class="row py-4">
+    <div class="col-lg-4 col-12">
+      <div class="profile-card card">
+        <header>
+          <!-- here’s the avatar -->
+          <a href="#">
+            <img src="<%= data.profilePicture %>" />
+          </a>
+          <!-- the username -->
+          <h1><%= data.name %></h1>
+          <!-- and role or location -->
+          <h2>Another Web Designer</h2>
+        </header>
+        <!-- bit of a bio; who are you? -->
+        <div class="profile-bio">
           <p><%= data.biography %></p>
         </div>
-        <button class="trigger formbold-btn">Change Profile</button>
-        <div class="modal">
-          <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <form
-              action="/profile-picture"
-              method="post"
-              enctype="multipart/form-data"
-            >
-              <input
-                type="file"
-                accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*"
-                name="profile"
-                id="profile"
+        <!-- some social links to show off -->
+        <ul class="profile-social-links">
+          <li>
+            <a href="#">
+              <img
+                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/social-twitter.svg"
               />
-              <button class="formbold-btn" type="submit">Change</button>
-            </form>
-          </div>
-        </div>
-        <link rel="stylesheet" href="/public/css/formfile.css" />
-        <style>
-          .modal {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            visibility: hidden;
-            transform: scale(1.1);
-            transition: visibility 0s linear 0.25s, opacity 0.25s 0s,
-              transform 0.25s;
-            z-index: 1001;
-          }
-          .modal-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            width: 24rem;
-            border-radius: 10px;
-          }
-          .close-button {
-            float: right;
-            width: 1.5rem;
-            line-height: 1.5rem;
-            text-align: center;
-            cursor: pointer;
-            border-radius: 50px;
-            background-color: lightgray;
-          }
-          .close-button:hover {
-            background-color: darkgray;
-          }
-          .show-modal {
-            opacity: 1;
-            visibility: visible;
-            transform: scale(1);
-            transition: visibility 0s linear 0s, opacity 0.25s 0s,
-              transform 0.25s;
-          }
-        </style>
-        <script src="/public/js/modal.js"></script>
-      </div>
-      <div class="form-right">
-        <form action="/edit-account" method="POST">
-          <div class="formbold-mb-3">
-            <label for="email" class="formbold-form-label"> Email </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              class="formbold-form-input"
-              value="<%= data.email %>"
-              readonly
-            />
-          </div>
-          <div class="formbold-mb-3">
-            <label for="name" class="formbold-form-label"> Name </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              class="formbold-form-input"
-              value="<%= data.name %>"
-            />
-          </div>
-          <div class="formbold-mb-3">
-            <label for="biography" class="formbold-form-label">
-              Biography
-            </label>
-            <input
-              type="text"
-              name="biography"
-              id="biography"
-              class="formbold-form-input"
-              value="<%= data.biography %>"
-            />
-          </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/social-envato.svg"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img
+                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/social-codepen.svg"
+              />
+            </a>
+          </li>
 
-          <button class="formbold-btn" type="submit">Update</button>
-        </form>
+          <!-- add or remove social profiles as you see fit -->
+        </ul>
       </div>
+      <div class="m-4 flex align-items-center justify-content-center">
+        <button class="trigger btn btn-success">Change Profile</button>
+        <button class="btn btn-danger">Delete Account</button>
+      </div>
+      <!-- action menu -->
+
+      <div class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+          <form
+            action="/profile-picture"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <input
+              type="file"
+              accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*"
+              name="profile"
+              id="profile"
+            />
+            <button class="formbold-btn" type="submit">Change</button>
+          </form>
+        </div>
+      </div>
+      <link rel="stylesheet" href="/public/css/formfile.css" />
+      <style>
+        .modal {
+          position: fixed;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          display: none;
+          transform: scale(1.1);
+          transition: visibility 0s linear 0.25s, opacity 0.25s 0s,
+            transform 0.25s;
+          z-index: 1001;
+        }
+        .modal-content {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: white;
+          padding: 20px;
+          width: 24rem;
+          border-radius: 10px;
+        }
+        .close-button {
+          float: right;
+          width: 1.5rem;
+          line-height: 1.5rem;
+          text-align: center;
+          cursor: pointer;
+          border-radius: 50px;
+          background-color: lightgray;
+        }
+        .close-button:hover {
+          background-color: darkgray;
+        }
+        .modal.show-modal {
+          display: block;
+          transform: scale(1);
+          transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+        }
+      </style>
+      <script src="/public/js/modal.js"></script>
+      <!-- end action menu -->
+    </div>
+    <div class="col-lg-8 col-12 p-4">
+      <form action="/edit-account" method="POST">
+        <div class="formbold-mb-3">
+          <label for="email" class="formbold-form-label"> Email </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="formbold-form-input"
+            value="<%= data.email %>"
+            readonly
+          />
+        </div>
+        <div class="formbold-mb-3">
+          <label for="name" class="formbold-form-label"> Name </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="formbold-form-input"
+            value="<%= data.name %>"
+          />
+        </div>
+        <div class="formbold-mb-3">
+          <label for="biography" class="formbold-form-label"> Biography </label>
+          <input
+            type="text"
+            name="biography"
+            id="biography"
+            class="formbold-form-input"
+            value="<%= data.biography %>"
+          />
+        </div>
+
+        <button class="formbold-btn" type="submit">Update</button>
+      </form>
     </div>
   </div>
 </div>
 <style>
-  .container {
-    width: 70%;
+  img {
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
+    border: 0;
   }
-  .banner {
-    margin-top: 20px;
-    background-image: url("/public/img/Nol (1).jpg");
-    background-position: center;
-    background-size: cover;
-    height: 250px;
-    width: 100%;
-    border-radius: 10px;
-  }
-  .container-bottom {
-    margin-top: 30px;
-    display: flex;
-  }
-  .container-bottom .form-left {
-    width: 40%;
-    padding: 10px;
-  }
-  .container-bottom .form-right {
-    width: 60%;
-    padding: 10px;
-  }
-  .desc {
-    padding-top: 20px;
-  }
-  .desc p:nth-child(1) {
-    padding: 10px 0px;
-  }
-  .name,
-  .info {
+  .profile-card header {
+    display: block;
+    position: relative;
+    background: rgba(255, 255, 255, 1);
     text-align: center;
-  }
-  @media screen and (max-width: 800px) {
-    .container-bottom {
-      display: block;
-    }
+    padding: 30px 0 20px;
+    z-index: 1;
+    overflow: hidden;
   }
 
-  @media (max-width: 800px) {
-    .banner {
-      height: 150px;
-    }
+  .profile-card header:before {
+    content: "";
+    position: absolute;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
   }
-  .photo-left {
-    display: flex;
-    justify-content: center;
+
+  .profile-card header img {
+    border-radius: 100%;
+    overflow: hidden;
+    width: 150px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
   }
-  .photo {
-    width: 200px;
-    height: 200px;
-    border-radius: 100px;
-    border: 4px solid #fff;
+
+  .profile-card header h1 {
+    font-weight: 200;
+    font-size: 24px;
+    color: #444;
+    margin: 0;
+    padding: 10px 0px;
+  }
+
+  .profile-card header h2 {
+    font-weight: 400;
+    font-size: 14px;
+    color: #666;
+    letter-spacing: 0.5px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .profile-card .profile-bio {
+    padding: 0 30px;
+    text-align: center;
+    color: #888;
+  }
+
+  .profile-card .profile-social-links {
+    display: table;
+    width: 70%;
+    margin: 20px auto;
+  }
+
+  .profile-card .profile-social-links li {
+    display: table-cell;
+    width: 33.3333333333333333%;
+  }
+
+  .profile-card .profile-social-links li a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    margin: 0 10px;
+    border-radius: 100%;
+    -webkit-transition: box-shadow 0.2s;
+    -moz-transition: box-shadow 0.2s;
+    -o-transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s;
+  }
+
+  .profile-card .profile-social-links li a img {
+    width: 30px;
+    display: block;
   }
 </style>

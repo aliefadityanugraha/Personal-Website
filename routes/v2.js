@@ -6,6 +6,7 @@ const router = express.Router();
 const adminController = require("../controllers/adminController");
 const mainController = require("../controllers/mainController");
 const errorController = require("../controllers/errorController");
+
 const { isLogin } = require("../middleware/authMidleware");
 const { isAdmin } = require("../middleware/adminMidleware");
 

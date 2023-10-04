@@ -1,7 +1,7 @@
 /** @format */
 
-const data = {
+"use strict";
+
+module.exports = {
   SECRET_KEY: "aliefadityanugraha",
 };
-
-module.exports = data;

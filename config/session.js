@@ -2,11 +2,12 @@
 
 const sessions = require("express-session");
 
-const isOneDay = 1000 * 60 * 60 * 24;
+const expireSessionIn = 1000 * 60 * 60 * 24;
+
 const sessionConf = sessions({
   secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
   saveUninitialized: true,
-  cookie: { maxAge: isOneDay },
+  cookie: { maxAge: expireSessionIn },
   resave: false,
 });
 

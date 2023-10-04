@@ -9,8 +9,8 @@ const jwtConfig = require("../config/jwt");
 
 module.exports = {
   home: async (req, res) => {
-    const posts = await Post.find().sort({ createdAt: -1 }).limit(4);
-    res.render("newhome", {
+    const posts = await Post.find().sort({ createdAt: 1 }).limit(4);
+    res.status(200).render("newhome", {
       layout: "layouts/newlayout",
       message: "ok",
       posts,
@@ -20,13 +20,15 @@ module.exports = {
     const session = req.session;
     const parse = jwt.verify(session.token, jwtConfig.SECRET_KEY);
     const data = await User.findOne({ email: parse.user.email });
-    res.render("account", {
+
+    res.status(200).render("account", {
       layout: "layouts/newlayout",
       data,
     });
   },
   ajax: (req, res) => {
     const session = req.session;
+
     if (!session.token) {
       console.log("ajax reject");
       res.send(false);
