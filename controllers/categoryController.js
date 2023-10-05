@@ -22,4 +22,20 @@ module.exports = {
       .then(() => res.redirect("/insert-category"))
       .catch((err) => console.log(err));
   },
+  edit: async (req, res) => {
+    await Category.updateOne(
+      { _id: req.body._id },
+      {
+        category: req.body.category,
+        description: req.body.description,
+      }
+    );
+    res.status(200).redirect("/insert-category");
+  },
+  delete: async (req, res) => {
+    await Category.findByIdAndDelete({
+      _id: req.params._id,
+    }).exec();
+    res.status(200).redirect("/insert-category");
+  },
 };

@@ -6,10 +6,10 @@ const profile = document.querySelector(".profile");
 
 const notLogin = `<ul class="options">
             <li class="option">
-              <a href="/signup" class="option-text">Signup</a>
+              <a href="/auth/signup" class="option-text">Signup</a>
             </li>
             <li class="option">
-              <a href="/login" class="option-text">Login</a>
+              <a href="/auth/login" class="option-text">Login</a>
             </li>
           </ul>`;
 
@@ -18,10 +18,10 @@ const isLogin = `<ul class="options">
               <a href="/account" class="option-text">Account</a>
             </li>
             <li class="option">
-              <a href="/login" class="option-text">Linkedin</a>
+              <a href="/auth/login" class="option-text">Linkedin</a>
             </li>
             <li class="option">
-              <a href="/logout" class="option-text">Logout</a>
+              <a href="/auth/logout" class="option-text">Logout</a>
             </li>
           </ul>`;
 
@@ -33,7 +33,7 @@ const isLoginAdmin = `<ul class="options">
               <a href="/admin" class="option-text">Dashboard</a>
             </li>
             <li class="option">
-              <a href="/logout" class="option-text">Logout</a>
+              <a href="/auth/logout" class="option-text">Logout</a>
             </li>
           </ul>`;
 

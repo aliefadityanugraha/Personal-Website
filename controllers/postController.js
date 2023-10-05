@@ -37,8 +37,23 @@ module.exports = {
       .catch((err) => console.log(err));
   },
   edit: async (req, res) => {
-    const category = await Category.find();
-    const post = await Post.findOne({ _id: req.body._id });
-    console.log(post);
+    await Post.updateOne(
+      { _id: req.body._id },
+      {
+        title: req.body.title,
+        category: req.body.category,
+        author: req.body.author,
+        image: req.body.img,
+        content: req.body.content,
+      }
+    );
+    res.status(200).redirect("/insert-post");
+  },
+  trash: async (req, res) => {},
+  delete: async (req, res) => {
+    await Post.findByIdAndDelete({
+      _id: req.params._id,
+    }).exec();
+    res.status(200).redirect("/insert-post");
   },
 };

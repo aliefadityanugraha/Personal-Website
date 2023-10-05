@@ -10,7 +10,7 @@ module.exports = {
     const session = req.session;
     if (!session.token) {
       console.log("Session not found");
-      res.redirect("/login");
+      res.redirect("/auth/login");
     } else {
       jwt.verify(session.token, jwtConfig.SECRET_KEY);
       next();

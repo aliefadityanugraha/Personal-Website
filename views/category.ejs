@@ -5,15 +5,16 @@
     <br />
     <h3>Add Categories</h3>
     <br />
-    <form action="/insert-category" method="POST">
+    <form class="form-edit" action="/insert-category" method="POST">
       <div>
+        <input type="text" name="_id" class="idInput" hidden />
         <label for="Category" class="formbold-form-label">Category</label>
         <input
           type="text"
           name="category"
           id="category"
           placeholder="Enter your category"
-          class="formbold-form-input"
+          class="formbold-form-input categoryInput"
           required
         />
       </div>
@@ -25,13 +26,14 @@
           name="description"
           id="description"
           placeholder="Type your description"
-          class="formbold-form-input"
+          class="formbold-form-input descriptionInput"
           required
         ></textarea>
       </div>
-      <br />
-      <button class="formbold-btn">Add Category</button>
+
+      <button class="btn btn-success m-1" type="submit">Submit Category</button>
     </form>
+    <button class="btn btn-danger m-1" onclick="clearInput()">Clear</button>
   </div>
 </div>
 <link
@@ -42,20 +44,36 @@
 <section>
   <div class="container">
     <!-- datatables -->
-    <table class="table table-stripped table-hover datatab">
+    <table class="table table-stripped table-hover datatable">
       <thead>
         <tr>
           <th>No</th>
           <th>Id</th>
           <th>Category Title</th>
+          <th>Description</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <% category.forEach(e => { %>
+        <% let number=1; category.forEach(e => { %>
         <tr>
-          <td>1</td>
+          <td><%= number++ %></td>
           <td><%= e._id %></td>
           <td><%= e.category %></td>
+          <td><%= e.description %></td>
+          <td class="d-flex">
+            <button
+              class="btn btn-warning btn-edit mx-1"
+              onclick="edit(`<%- number-2 %>`)"
+            >
+              Edit
+            </button>
+            <form action="/delete-category/<%= e._id %>" method="get">
+              <button class="btn btn-danger btn-delete mx-1" type="submit">
+                Delete
+              </button>
+            </form>
+          </td>
         </tr>
         <% }) %>
       </tbody>
@@ -68,4 +86,36 @@
   $(document).ready(function () {
     $(".datatable").DataTable();
   });
+</script>
+<div class="data" hidden>
+  <% category.forEach(e => { %>
+  <div class="post">
+    <div class="id"><%= e._id %></div>
+    <div class="category"><%= e.category %></div>
+    <div class="description"><%= e.description %></div>
+  </div>
+  <% }) %>
+</div>
+<script>
+  const inputCategory = document.querySelector(".categoryInput");
+  const inputDescription = document.querySelector(".descriptionInput");
+  const inputId = document.querySelector(".idInput");
+  const form = document.querySelector(".form-edit");
+
+  function edit(target) {
+    const id = document.querySelectorAll(".id");
+    const category = document.querySelectorAll(".category");
+    const description = document.querySelectorAll(".description");
+
+    inputId.value = id[target].innerHTML;
+    inputCategory.value = category[target].innerHTML;
+    inputDescription.value = description[target].innerHTML;
+    form.action = "/edit-category";
+  }
+
+  function clearInput() {
+    inputCategory.value = "";
+    inputDescription.value = "";
+    form.action = "/insert-category";
+  }
 </script>

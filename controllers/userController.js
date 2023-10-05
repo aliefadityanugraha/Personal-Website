@@ -6,7 +6,6 @@ const User = require("../models/userModel");
 const jwtConfig = require("../config/jwt");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
-var flash = require("connect-flash");
 
 const getHashedPassword = (password) => {
   const sha256 = crypto.createHash("sha256");
@@ -50,18 +49,18 @@ module.exports = {
               "message",
               "Sign Up Success. Please Login into your account"
             );
-            res.status(200).redirect("/login");
+            res.status(200).redirect("/auth/login");
           })
           .catch((err) => console.log(err));
       } else {
         console.log("User is Alredy Exist");
         req.flash("message", "User is Alredy Exist");
-        res.status(200).redirect("/signup");
+        res.status(200).redirect("/auth/signup");
       }
     } else {
       console.log("Password Not Match");
       req.flash("message", "Password Not Match");
-      res.status(200).redirect("/signup");
+      res.status(200).redirect("/auth/signup");
     }
   },
   authetication: async (req, res) => {
@@ -88,12 +87,12 @@ module.exports = {
       } else {
         // res.status(200).send("Password not match");
         req.flash("message", "Password not match");
-        res.status(200).redirect("/login");
+        res.status(200).redirect("/auth/login");
       }
     } else {
       // res.status(200).send("User Not Found");
       req.flash("message", "User not Found");
-      res.status(200).redirect("/login");
+      res.status(200).redirect("/auth/login");
     }
   },
   logout: (req, res) => {
