@@ -212,17 +212,15 @@
   <% }) %>
 </div>
 <script>
-  // input selector
   const inputTitle = document.querySelector(".input-title");
   const inputCategory = document.querySelectorAll(".option");
   const inputImage = document.querySelector(".input-image");
   const inputContent = document.querySelector(".input-content");
   const inputAuthor = document.querySelector(".input-author");
   const inputId = document.querySelector("._id");
-  const form = document.querySelector("form-edit");
+  const form = document.querySelector(".form-edit");
 
   function edit(target) {
-    // data
     const id = document.querySelectorAll(".id");
     const title = document.querySelectorAll(".title");
     const category = document.querySelectorAll(".category");
@@ -230,10 +228,8 @@
     const content = document.querySelectorAll(".content");
     const author = document.querySelectorAll(".author");
 
-    // replace
     inputId.value = id[target].innerHTML;
     inputTitle.value = title[target].innerHTML;
-    // inputCategory.value = category[target].innerHTML;
     inputImage.value = image[target].innerHTML;
     inputContent.value = content[target].innerHTML;
     inputAuthor.value = author[target].innerHTML;
@@ -242,7 +238,6 @@
 
   function clearInput() {
     inputTitle.value = "";
-    // inputCategory.value = category[target].innerHTML;
     inputImage.value = "";
     inputContent.value = "";
     inputAuthor.value = "";

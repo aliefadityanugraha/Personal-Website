@@ -33,7 +33,7 @@ module.exports = {
     });
     data
       .save()
-      .then(() => res.redirect("/"))
+      .then(() => res.status(200).redirect("/insert-post"))
       .catch((err) => console.log(err));
   },
   edit: async (req, res) => {

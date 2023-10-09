@@ -1,25 +1,28 @@
 <!-- @format -->
 
-<div class="containerx">
-  <div class="box">
-    <b>User Active</b>
-    <h1 class="number-counter"><%- (data.user).length %></h1>
-  </div>
-  <div class="box">
-    <b>Posts</b>
-    <h1 class="number-counter"><%- (data.post).length %></h1>
-  </div>
-  <div class="box">
-    <b>Categories</b>
-    <h1 class="number-counter"><%- (data.category).length %></h1>
-  </div>
-  <div class="box">
-    <b>Roles</b>
-    <h1 class="number-counter"><%- (data.role).length %></h1>
+<div class="container">
+  <div class="d-flex justify-content-arround align-items-center">
+    <div class="col-lg-3 box">
+      <b>User Active</b>
+      <h2 class="number-counter"><%- (data.user).length %></h1>
+    </div>
+    <div class="col-lg-3 box">
+      <b>Posts</b>
+      <h2 class="number-counter"><%- (data.post).length %></h1>
+    </div>
+    <div class="col-lg-3 box">
+      <b>Categories</b>
+      <h2 class="number-counter"><%- (data.category).length %></h1>
+    </div>
+    <div class="col-lg-3 box">
+      <b>Roles</b>
+      <h2 class="number-counter"><%- (data.role).length %></h1>
+    </div>
   </div>
 </div>
-<div class="containerx">
-  <div class="box-bottom">
+<div class="container">
+ <div class="d-flex row justify-content-arround">
+   <div class="col-lg-5 m-4 box-bottom">
     <b>
       <h3>List of User Active</h3>
     </b>
@@ -30,7 +33,7 @@
       <% }) %>
     </ul>
   </div>
-  <div class="box-bottom">
+  <div class="col-lg-5 m-4 box-bottom">
     <b>
       <h3>Log Application</h3>
     </b>
@@ -46,9 +49,11 @@
       <hr />
     </ul>
   </div>
+ </div>
 </div>
-<div class="containerx">
-  <div class="box-bottom">
+<div class="container">
+<div class="d-flex justify-content-arround">
+<div class="col-lg-5 m-4 box-bottom">
     <b>
       <h3>List of Posts</h3>
     </b>
@@ -59,7 +64,7 @@
       <% }) %>
     </ul>
   </div>
-  <div class="box-bottom">
+  <div class="col-lg-5 m-4 box-bottom">
     <b>
       <h3>List of Category</h3>
     </b>
@@ -81,6 +86,8 @@
     </ul>
   </div>
 </div>
+  
+</div>
 
 <style>
   .containerx {
@@ -94,22 +101,14 @@
   }
 
   .box {
-    padding: 30px;
-    border-radius: 10px;
+    padding: 20px;
+    /* margin: 5px; */
+    /* border-radius: 10px; */
     background-color: #6a64f1;
-    width: 20%;
-    height: 18vh;
+    /* width: 20%; */
+    /* height: 18vh; */
     color: #fff;
     text-align: center;
-  }
-
-  .box-bottom {
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #ededed;
-    width: 41.3%;
-    height: auto;
-    color: #000;
   }
 
   .box-bottom b.h3 {
@@ -117,7 +116,7 @@
   }
 
   .box-bottom ul li {
-    padding: 10px;
+    padding: 5px;
     text-decoration: none;
     list-style: none;
   }

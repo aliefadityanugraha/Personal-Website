@@ -1,2 +1,21 @@
 <!-- @format -->
-<div class="container"><%- post %></div>
+<div class="container">
+  <div class="row d-flex align-items-center justify-content-center my-4">
+    <div class="col-lg-8 col-12">
+      <h2 class="my-4"><%= post.title %></h2>
+      <img
+        src="<%= post.image %>"
+        alt="<%= post.title %>"
+        class="img-fluid"
+        style="width: 100%"
+      />
+      <div class="d-flex my-3">
+        <p class="fw-bold">
+          <a href="/category/<%= post.category %>"><%= post.category %></a> |
+          <%= post.created_at %>
+        </p>
+      </div>
+      <p><%= post.content %></p>
+    </div>
+  </div>
+</div>

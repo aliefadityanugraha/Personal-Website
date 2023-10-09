@@ -9,6 +9,7 @@ const postController = require("../controllers/postController");
 const categoryController = require("../controllers/categoryController");
 const roleController = require("../controllers/roleController");
 const accountController = require("../controllers/accountController");
+const resetPasswordController = require("../controllers/resetPasswordController");
 
 const { isLogin } = require("../middleware/authMidleware");
 const { isAdmin } = require("../middleware/adminMidleware");
@@ -19,10 +20,13 @@ router.get("/auth/login", userController.login);
 router.post("/auth/login", userController.authetication);
 router.get("/auth/signup", userController.signUp);
 router.post("/auth/signup", userController.save);
+router.get("/auth/get-reset-password", resetPasswordController.resetLinkView);
+router.post("/auth/get-reset-password", resetPasswordController.sendMail);
 
 router.get("/account", isLogin, mainController.account);
 router.post("/profile-picture", accountController.uploadProfile);
 router.post("/edit-account", isLogin, accountController.editAccount);
+router.post("/user/change-password", isLogin, userController.changePassword);
 
 router.get("/read/:_id", postController.read);
 router.get("/insert-post", isLogin, postController.inserView);

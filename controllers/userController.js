@@ -85,12 +85,10 @@ module.exports = {
         session.token = token;
         res.status(200).redirect("/");
       } else {
-        // res.status(200).send("Password not match");
         req.flash("message", "Password not match");
         res.status(200).redirect("/auth/login");
       }
     } else {
-      // res.status(200).send("User Not Found");
       req.flash("message", "User not Found");
       res.status(200).redirect("/auth/login");
     }
@@ -98,5 +96,23 @@ module.exports = {
   logout: (req, res) => {
     req.session.destroy();
     res.status(200).redirect("/");
+  },
+  changePassword: async (req, res) => {
+    const findUser = await User.findOne({ email: req.body.email });
+
+    if (findUser.password === getHashedPassword(req.body.oldPassword)) {
+      await User.updateOne(
+        { email: req.body.email },
+        { password: getHashedPassword(req.body.newPassword) }
+      );
+      req.flash("message", "Change Password Sucessfully");
+      res.status(200).redirect("/account");
+    } else {
+      req.flash(
+        "message",
+        "Your Old Password Doest Match with your Password now"
+      );
+      res.status(200).redirect("/account");
+    }
   },
 };
