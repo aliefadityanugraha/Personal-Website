@@ -2,34 +2,57 @@
 <link rel="stylesheet" href="/public/css/insert.css" />
 <div class="formbold-main-wrapper">
   <div class="formbold-form-wrapper">
-    <br />
-    <h3>Add Role</h3>
-    <br />
+    <h3 class="text-center mb-5">Add Role</h3>
     <form action="/insert-role" method="POST">
       <div>
         <label for="role" class="formbold-form-label">Role</label>
-        <input type="text" name="role" id="role" placeholder="Enter new role" class="formbold-form-input" required />
+        <input
+          type="text"
+          name="role"
+          id="role"
+          placeholder="Enter new role"
+          class="formbold-form-input"
+          required
+        />
       </div>
       <br />
       <div>
         <label for="roleid" class="formbold-form-label">Role Id</label>
-        <input type="text" name="roleId" id="roleid" placeholder="Enter new role" class="formbold-form-input" required />
+        <input
+          type="text"
+          name="roleId"
+          id="roleid"
+          placeholder="Enter new role"
+          class="formbold-form-input"
+          required
+        />
       </div>
       <br />
       <div>
         <label for="description" class="formbold-form-label">Description</label>
-        <textarea rows="6" name="description" id="description" placeholder="Type your description" class="formbold-form-input" required></textarea>
+        <textarea
+          rows="6"
+          name="description"
+          id="description"
+          placeholder="Type your description"
+          class="formbold-form-input"
+          required
+        ></textarea>
       </div>
       <br />
       <button class="formbold-btn">Add Role</button>
     </form>
   </div>
 </div>
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css" />
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css"
+/>
 <section>
   <div class="container">
     <!-- datatables -->
-    <table class="table table-stripped table-hover datatab">
+    <table class="table table-borderless table-hover datatable">
       <thead>
         <tr>
           <th>No</th>
@@ -52,7 +75,7 @@
 </section>
 <script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
     $(".datatable").DataTable();
   });
 </script>

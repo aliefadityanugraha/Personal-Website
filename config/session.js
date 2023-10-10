@@ -2,7 +2,7 @@
 
 const sessions = require("express-session");
 
-const expireSessionIn = 1000 * 60 * 60 * 24;
+const expireSessionIn = 60000 * 60;
 
 const sessionConf = sessions({
   secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",

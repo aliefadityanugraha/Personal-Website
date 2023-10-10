@@ -2,9 +2,7 @@
 <link rel="stylesheet" href="/public/css/insert.css" />
 <div class="formbold-main-wrapper">
   <div class="formbold-form-wrapper">
-    <br />
-    <h3>Add Categories</h3>
-    <br />
+    <h3 class="text-center mb-5">Add Categories</h3>
     <form class="form-edit" action="/insert-category" method="POST">
       <div>
         <input type="text" name="_id" class="idInput" hidden />
@@ -31,9 +29,13 @@
         ></textarea>
       </div>
 
-      <button class="btn btn-success m-1" type="submit">Submit Category</button>
+      <div class="d-flex">
+        <button class="btn btn-danger m-1" onclick="clearInput()">Clear</button>
+        <button class="btn btn-success m-1" type="submit">
+          Submit Category
+        </button>
+      </div>
     </form>
-    <button class="btn btn-danger m-1" onclick="clearInput()">Clear</button>
   </div>
 </div>
 <link
@@ -44,7 +46,7 @@
 <section>
   <div class="container">
     <!-- datatables -->
-    <table class="table table-stripped table-hover datatable">
+    <table class="table table-borderless table-hover datatable">
       <thead>
         <tr>
           <th>No</th>
@@ -63,13 +65,16 @@
           <td><%= e.description %></td>
           <td class="d-flex">
             <button
-              class="btn btn-warning btn-edit mx-1"
+              class="btn btn-warning btn-edit mx-1 btn-sm"
               onclick="edit(`<%- number-2 %>`)"
             >
               Edit
             </button>
             <form action="/delete-category/<%= e._id %>" method="get">
-              <button class="btn btn-danger btn-delete mx-1" type="submit">
+              <button
+                class="btn btn-danger btn-delete mx-1 btn-sm"
+                type="submit"
+              >
                 Delete
               </button>
             </form>

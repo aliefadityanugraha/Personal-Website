@@ -1,6 +1,6 @@
 <!-- @format -->
 <link rel="stylesheet" href="/public/css/signup.css" />
-<div class="container py-lg-5">
+<div class="container py-lg-5 d-flex justify-content-center">
   <div class="row py-4">
     <div class="col-lg-4 col-12">
       <div class="profile-card">
@@ -45,8 +45,7 @@
           <!-- add or remove social profiles as you see fit -->
         </ul>
       </div>
-      <div class="m-1 flex align-items-center justify-content-center">
-        <!-- <button class="trigger btn btn-success">Change Profile</button> -->
+      <div class="d-grid gap-2">
         <button
           type="button"
           class="btn btn-primary"
@@ -55,15 +54,15 @@
         >
           Change Profile
         </button>
-        <button class="m-1 btn btn-danger">Delete Account</button>
         <button
           type="button"
-          class="m-1 btn btn-primary"
+          class="btn btn-primary"
           data-bs-toggle="modal"
           data-bs-target="#modal-change-password"
         >
           Change Password
         </button>
+        <button class="btn btn-danger">Delete Account</button>
       </div>
       <!-- action menu -->
       <script src="/public/js/modal.js"></script>
@@ -119,7 +118,9 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="modal-change-password">New message</h1>
+        <h1 class="modal-title fs-5" id="modal-change-password">
+          Change Password
+        </h1>
         <button
           type="button"
           class="btn-close"
@@ -141,7 +142,7 @@
           </div>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label"
-              >New Passworx</label
+              >New Password</label
             >
             <input
               type="text"
@@ -169,7 +170,9 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="modal-change-profile">New message</h1>
+        <h1 class="modal-title fs-5" id="modal-change-profile">
+          Change Profile Picture
+        </h1>
         <button
           type="button"
           class="btn-close"
@@ -185,7 +188,6 @@
         >
           <div class="modal-body">
             <div class="input-group mb-3">
-              <label class="input-group-text" for="profile">Upload</label>
               <input
                 type="file"
                 class="form-control"
@@ -193,6 +195,7 @@
                 .jpeg, .gif, .bmp, .tif, .tiff|image/*"
                 name="profile"
                 id="profile"
+                required
               />
             </div>
           </div>

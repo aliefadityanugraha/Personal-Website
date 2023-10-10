@@ -11,8 +11,7 @@ const roleController = require("../controllers/roleController");
 const accountController = require("../controllers/accountController");
 const resetPasswordController = require("../controllers/resetPasswordController");
 
-const { isLogin } = require("../middleware/authMidleware");
-const { isAdmin } = require("../middleware/adminMidleware");
+const { isLogin, isAdmin } = require("../middleware/authMidleware");
 
 router.get("/", mainController.home);
 router.get("/auth", userController.auth);

@@ -7,8 +7,7 @@ const adminController = require("../controllers/adminController");
 const mainController = require("../controllers/mainController");
 const errorController = require("../controllers/errorController");
 
-const { isLogin } = require("../middleware/authMidleware");
-const { isAdmin } = require("../middleware/adminMidleware");
+const { isLogin, isAdmin } = require("../middleware/authMidleware");
 
 router.get("/admin", isLogin, isAdmin, adminController.dashboard);
 
