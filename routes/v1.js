@@ -26,6 +26,7 @@ router.get("/account", isLogin, mainController.account);
 router.post("/profile-picture", accountController.uploadProfile);
 router.post("/edit-account", isLogin, accountController.editAccount);
 router.post("/user/change-password", isLogin, userController.changePassword);
+router.post("/user/delete-account", isLogin, userController.deleteAccount);
 
 router.get("/read/:_id", postController.read);
 router.get("/insert-post", isLogin, postController.inserView);
