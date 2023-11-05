@@ -6,6 +6,7 @@ const cloudinary = require("../handler/cloudinary");
 const jwt = require("jsonwebtoken");
 const jwtConfig = require("../config/jwt");
 const User = require("../models/userModel");
+var validator = require("validator");
 
 module.exports = {
   uploadProfile: async (req, res) => {
@@ -24,19 +25,21 @@ module.exports = {
           profilePicture: result.secure_url,
         }
       );
-      res.redirect("/account");
+      res.status(200).redirect("/account");
     } catch (err) {
       console.log(err);
     }
   },
   editAccount: async (req, res) => {
-    await User.updateOne(
-      { email: req.body.email },
-      {
-        name: req.body.name,
-        biography: req.body.biography,
-      }
-    );
-    res.redirect("/account");
+    if (validator.isEmail(req.body.email)) {
+      await User.updateOne(
+        { email: req.body.email },
+        {
+          name: req.body.name,
+          biography: req.body.biography,
+        }
+      );
+      res.status(200).redirect("/account");
+    }
   },
 };

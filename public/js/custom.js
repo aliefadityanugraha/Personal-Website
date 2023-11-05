@@ -41,5 +41,5 @@
   });
 
   // TOOLTIP
-  $(".social-links a").tooltip();
+  // $(".social-links a").tooltip();
 })(jQuery);

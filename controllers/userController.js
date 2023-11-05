@@ -116,7 +116,7 @@ module.exports = {
     }
   },
   deleteAccount: async (req, res) => {
-    const deleteAccounAction = await User.deleteOne({ email: req.body.email });
+    await User.deleteOne({ email: req.body.email });
     res.status(200).redirect("/");
   },
 };
