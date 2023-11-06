@@ -11,6 +11,7 @@ module.exports = {
     res.status(200).render("read", {
       layout: "layouts/newlayout",
       post,
+      title: "Read",
     });
   },
   inserView: async (req, res) => {
@@ -21,6 +22,7 @@ module.exports = {
       message: "ok",
       category,
       posts,
+      title: "Insert Post",
     });
   },
   insert: (req, res) => {

@@ -13,6 +13,7 @@
   border-radius: 50px;
 }
 .select-menu .options {
+  display: none;
   transform: translate(-140px, 0px) !important;
   position: absolute;
   width: 180px;

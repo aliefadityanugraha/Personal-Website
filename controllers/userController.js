@@ -18,12 +18,14 @@ module.exports = {
     res.status(200).render("login", {
       layout: "layouts/authlayout",
       message: req.flash("message"),
+      title: "Login",
     });
   },
   signUp: (req, res) => {
     res.status(200).render("signup", {
       layout: "layouts/authlayout",
       message: req.flash("message"),
+      title: "Sign Up",
     });
   },
   auth: (req, res) => {
@@ -114,5 +116,9 @@ module.exports = {
       );
       res.status(200).redirect("/account");
     }
+  },
+  deleteAccount: async (req, res) => {
+    await User.deleteOne({ email: req.body.email });
+    res.status(200).redirect("/");
   },
 };

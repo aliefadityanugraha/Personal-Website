@@ -14,6 +14,7 @@ module.exports = {
       layout: "layouts/newlayout",
       message: "ok",
       posts,
+      title: "Home",
     });
   },
   account: async (req, res) => {
@@ -24,6 +25,7 @@ module.exports = {
     res.status(200).render("account", {
       layout: "layouts/newlayout",
       data,
+      title: "Account",
     });
   },
   ajax: (req, res) => {

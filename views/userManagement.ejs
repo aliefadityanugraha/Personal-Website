@@ -1,0 +1,145 @@
+<!-- @format -->
+<link rel="stylesheet" href="/public/css/insert.css" />
+<div class="formbold-main-wrapper">
+  <div class="formbold-form-wrapper">
+    <h3 class="text-center mb-3">User Management</h3>
+    <form
+      class="form-edit"
+      action="/administrator/edit-permission"
+      method="POST"
+    >
+      <input type="text" name="_id" class="idInput" hidden />
+      <div>
+        <label for="role" class="formbold-form-label"> Role </label>
+        <select name="role" id="role" class="formbold-form-input" required>
+          <% roles.forEach(e => { %>
+          <option class="option-role" value="<%= e.roleId %>">
+            <%= e.role %>
+          </option>
+          <% }) %>
+        </select>
+      </div>
+      <br />
+      <div>
+        <label for="status" class="formbold-form-label"> Status </label>
+        <select name="status" id="status" class="formbold-form-input" required>
+          <option class="option-status" value="Active">Active</option>
+          <option class="option-status" value="Suspend">Suspend</option>
+        </select>
+      </div>
+      <br />
+      <button class="btn btn-success m-1 rounded-pill" type="submit">
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css"
+/>
+<section>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css"
+  />
+  <section>
+    <div class="container">
+      <!-- datatables -->
+      <table class="table table-borderless table-hover datatable">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Name</th>
+            <th>Created At</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% let number=1; users.forEach(e => { %>
+          <tr>
+            <td><%= number++ %></td>
+            <td><%= e.email %></td>
+            <td><%= e.role %></td>
+            <td><%= e.name%></td>
+            <td><%= e.created_at%></td>
+            <td>
+              <span class="badge rounded-pill text-bg-success"
+                ><%= e.status%></span
+              >
+            </td>
+            <td class="d-flex">
+              <button
+                class="btn btn-warning btn-edit mx-1 btn-sm rounded-pill"
+                onclick="edit(`<%- number-2 %>`)"
+              >
+                Edit
+              </button>
+              <form action="/delete-category/<%= e._id %>" method="get">
+                <button
+                  class="btn btn-danger btn-delete mx-1 btn-sm rounded-pill"
+                  type="submit"
+                >
+                  Delete
+                </button>
+              </form>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+      <!-- datatable end -->
+    </div>
+  </section>
+  <script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(".datatable").DataTable();
+    });
+  </script>
+</section>
+<div class="data" hidden>
+  <% users.forEach(e => { %>
+  <div class="post">
+    <div class="id"><%= e._id %></div>
+    <div class="role"><%= e.role %></div>
+    <div class="status"><%= e.status %></div>
+  </div>
+  <% }) %>
+</div>
+<script>
+  const inputStatus = document.querySelectorAll(".option-status");
+  const inputRole = document.querySelectorAll(".option-role");
+  const inputId = document.querySelector(".idInput");
+  const form = document.querySelector(".form-edit");
+
+  let selectRole = [];
+  inputRole.forEach((e) => {
+    selectRole.push(e.value);
+  });
+
+  let selectStatus = [];
+  inputStatus.forEach((e) => {
+    selectStatus.push(e.value);
+  });
+
+  function edit(target) {
+    const id = document.querySelectorAll(".id");
+    const role = document.querySelectorAll(".role");
+    const status = document.querySelectorAll(".status");
+
+    const findIndexRole = selectRole.lastIndexOf(role[target].innerHTML);
+    inputRole[findIndexRole].selected = true;
+
+    const findIndexStatus = selectRole.lastIndexOf(role[target].innerHTML);
+    inputRole[findIndexStatus].selected = true;
+
+    inputId.value = id[target].innerHTML;
+    form.action = "/administrator/edit-permission";
+  }
+</script>

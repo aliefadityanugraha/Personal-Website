@@ -12,6 +12,7 @@ module.exports = {
     res.status(200).render("resetLink", {
       layout: "layouts/authlayout",
       message: req.flash("message"),
+      title: "Reset Password",
     });
   },
   sendMail: async (req, res) => {

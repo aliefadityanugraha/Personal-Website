@@ -10,7 +10,7 @@
     />
     <meta name="description" content="Alief personal website" />
     <meta name="author" content="Alief Aditya Nugraha" />
-    <title>Alief Aditya | Personal Blog</title>
+    <title><%= title %> | Personal Blog</title>
     <link rel="stylesheet" href="/public/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/public/css/unicons.css" />
     <link rel="stylesheet" href="/public/css/owl.carousel.min.css" />
@@ -55,8 +55,13 @@
               >
             </li>
             <li class="nav-item">
-              <a href="insert-role" class="nav-link"
+              <a href="/administrator/insert-role" class="nav-link"
                 ><span data-hover="Role">Role</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="/administrator/user-management" class="nav-link"
+                ><span data-hover="Role">User</span></a
               >
             </li>
           </ul>

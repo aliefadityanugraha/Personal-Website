@@ -18,6 +18,7 @@ module.exports = {
     res.status(200).render("admin/dashboard", {
       layout: "layouts/newadminlayout",
       data,
+      title: "Admin",
     });
   },
 };

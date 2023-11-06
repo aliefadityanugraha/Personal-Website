@@ -1,12 +1,16 @@
 <!-- @format -->
 <link rel="stylesheet" href="/public/css/signup.css" />
-<div class="container py-lg-5 d-flex justify-content-center">
+<div class="container py-lg-5">
   <div class="row py-4">
-    <div class="col-lg-4 col-12">
+    <div class="col-lg-3 col-12">
       <div class="profile-card">
         <header>
           <!-- here’s the avatar -->
-          <a href="<%= data.profilePicture %>" target="_blank">
+          <a
+            class="picture-wrapper"
+            href="<%= data.profilePicture %>"
+            target="_blank"
+          >
             <img src="<%= data.profilePicture %>" />
           </a>
           <!-- the username -->
@@ -48,7 +52,7 @@
       <div class="d-grid gap-2">
         <button
           type="button"
-          class="btn btn-primary"
+          class="btn btn-primary rounded-pill"
           data-bs-toggle="modal"
           data-bs-target="#modal-change-profile"
         >
@@ -56,13 +60,20 @@
         </button>
         <button
           type="button"
-          class="btn btn-primary"
+          class="btn btn-primary rounded-pill"
           data-bs-toggle="modal"
           data-bs-target="#modal-change-password"
         >
           Change Password
         </button>
-        <button class="btn btn-danger">Delete Account</button>
+        <button
+          type="button"
+          class="btn btn-danger rounded-pill"
+          data-bs-toggle="modal"
+          data-bs-target="#modal-delete-account"
+        >
+          Delete Account
+        </button>
       </div>
       <!-- action menu -->
       <script src="/public/js/modal.js"></script>
@@ -102,7 +113,7 @@
           />
         </div>
 
-        <button class="btn btn-success" type="submit">Save</button>
+        <button class="btn btn-success rounded-pill" type="submit">Save</button>
       </form>
     </div>
   </div>
@@ -207,6 +218,40 @@
     </div>
   </div>
 </div>
+<!-- MODALMADEL -->
+<div
+  class="modal fade"
+  id="modal-delete-account"
+  tabindex="-1"
+  aria-labelledby="modal-delete-account"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modal-delete-account">
+          Confirm Delete Your Acoount
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form action="/user/delete-account" method="post">
+          <div class="modal-body">
+            <input type="text" name="email" value="<%= data.email %>" hidden />
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 <style>
   img {
     -ms-interpolation-mode: bicubic;
@@ -235,9 +280,10 @@
   }
 
   .profile-card header img {
-    border-radius: 15px;
+    border-radius: 100px;
     overflow: hidden;
     width: 150px;
+    height: 150px;
     box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
   }
 
