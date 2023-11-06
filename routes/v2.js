@@ -12,18 +12,24 @@ const testController = require("../controllers/testController");
 const { isLogin, isAdmin } = require("../middleware/authMidleware");
 const { isRole } = require("../middleware/roleMidleware");
 
-router.get("/admin", isLogin, isRole([2]), adminController.dashboard);
+router.get("/admin", isLogin, isRole(4), adminController.dashboard);
 router.get(
   "/administrator/user-management",
   isLogin,
-  isRole([2]),
+  isRole(4),
   userManagementController.userManagementView
+);
+router.post(
+  "/administrator/edit-permission",
+  isLogin,
+  isRole(4),
+  userManagementController.editPermission
 );
 
 router.get(
   "/test-role-management",
   isLogin,
-  isRole([2]),
+  isRole(4),
   testController.authPage
 );
 

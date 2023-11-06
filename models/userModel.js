@@ -20,6 +20,10 @@ const user = mongoose.Schema({
     type: String,
     default: "https://placehold.co/400/png",
   },
+  status: {
+    type: String,
+    default: "Active",
+  },
   created_at: {
     type: Date,
     default: Date.now,

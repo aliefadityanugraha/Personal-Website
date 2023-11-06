@@ -7,17 +7,21 @@ const nodeMailer = require("nodemailer");
 module.exports = (email, shareLink) => {
   const transporter = nodeMailer.createTransport({
     service: "smtp.gmail.com",
-    secure: true,
+    port: 587,
+    secure: false,
+    logger: true,
+    debug: true,
+    secureConnection: false,
     auth: {
       user: process.env.EMAIL,
       pass: process.env.EMAIL_PASSWORD,
     },
   });
 
-  console.log(process.env.EMAIL);
+  console.log(email);
 
   const mailOptions = {
-    from: `TechtoLove | Reset Password <${process.env.EMAIL}>`,
+    from: `TechtoLove | <${process.env.EMAIL}>`,
     to: `<${email}>`,
     subject: "Sending Email using Node.js",
     html: `

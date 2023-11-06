@@ -38,34 +38,35 @@ router.get("/delete-post/:_id", isLogin, postController.delete);
 router.get(
   "/insert-category",
   isLogin,
-  isRole([2]),
+  isRole(2),
   categoryController.insertView
 );
-router.post(
-  "/insert-category",
-  isLogin,
-  isRole([2]),
-  categoryController.insert
-);
-router.post("/edit-category", isLogin, isRole([2]), categoryController.edit);
+router.post("/insert-category", isLogin, isRole(2), categoryController.insert);
+router.post("/edit-category", isLogin, isRole(2), categoryController.edit);
 router.get(
   "/delete-category/:_id",
   isLogin,
-  isRole([2]),
+  isRole(2),
   categoryController.delete
 );
 
 router.get(
   "/administrator/insert-role",
   isLogin,
-  isRole([2]),
+  isRole(3),
   roleController.insertView
 );
 router.post(
   "/administrator/insert-role",
   isLogin,
-  isRole([2]),
+  isRole(3),
   roleController.insert
+);
+router.post(
+  "/administrator/edit-role",
+  isLogin,
+  isRole(3),
+  roleController.edit
 );
 
 router.get("/auth/logout", userController.logout);
