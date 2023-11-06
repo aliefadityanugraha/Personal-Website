@@ -1,0 +1,46 @@
+<!-- @format -->
+
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css"
+/>
+<section>
+  <div class="container">
+    <!-- datatables -->
+    <table class="table table-borderless table-hover datatable">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Id</th>
+          <th>Email</th>
+          <th>Role Id</th>
+          <th>Description</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach(e => { %>
+        <tr>
+          <td>1</td>
+          <td><%= e.id %></td>
+          <td><%= e.email %></td>
+          <td><%= e.role %></td>
+          <td><%= e.name%></td>
+          <td>
+            <button class="btn btn-warning rounded-pill btn-sm">Edit</button>
+            <button class="btn btn-danger rounded-pill btn-sm">Delete</button>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <!-- datatable end -->
+  </div>
+</section>
+<script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $(".datatable").DataTable();
+  });
+</script>

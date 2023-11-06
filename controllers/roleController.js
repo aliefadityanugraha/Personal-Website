@@ -3,6 +3,7 @@
 "use strict";
 
 const Role = require("../models/roleModel");
+const validator = require("validator");
 
 module.exports = {
   insertView: async (req, res) => {
@@ -10,6 +11,7 @@ module.exports = {
     res.status(200).render("role", {
       layout: "layouts/newadminlayout",
       role,
+      title: "Role Management",
     });
   },
   insert: async (req, res) => {
@@ -20,7 +22,7 @@ module.exports = {
     });
     data
       .save()
-      .then(() => res.redirect("/insert-role"))
+      .then(() => res.redirect("/administrator/insert-role"))
       .catch((err) => console.log(err));
   },
 };

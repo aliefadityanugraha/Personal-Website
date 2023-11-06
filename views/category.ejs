@@ -30,8 +30,10 @@
       </div>
 
       <div class="d-flex">
-        <button class="btn btn-danger m-1" onclick="clearInput()">Clear</button>
-        <button class="btn btn-success m-1" type="submit">
+        <button class="btn btn-danger m-1 rounded-pill" onclick="clearInput()">
+          Clear
+        </button>
+        <button class="btn btn-success m-1 rounded-pill" type="submit">
           Submit Category
         </button>
       </div>
@@ -65,14 +67,14 @@
           <td><%= e.description %></td>
           <td class="d-flex">
             <button
-              class="btn btn-warning btn-edit mx-1 btn-sm"
+              class="btn btn-warning btn-edit mx-1 btn-sm rounded-pill"
               onclick="edit(`<%- number-2 %>`)"
             >
               Edit
             </button>
             <form action="/delete-category/<%= e._id %>" method="get">
               <button
-                class="btn btn-danger btn-delete mx-1 btn-sm"
+                class="btn btn-danger btn-delete mx-1 btn-sm rounded-pill"
                 type="submit"
               >
                 Delete

@@ -25,13 +25,4 @@ module.exports = {
       res.redirect("/");
     }
   },
-  isWriter: (req, res) => {
-    const session = req.session;
-    const token = jwt.verify(session.token, jwtConfig.SECRET_KEY);
-    if (token.user.role === 3) {
-      next();
-    } else {
-      res.redirect("/");
-    }
-  },
 };

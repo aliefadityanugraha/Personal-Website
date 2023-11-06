@@ -10,7 +10,12 @@
     />
     <meta name="description" content="Alief personal website" />
     <meta name="author" content="Alief Aditya Nugraha" />
-    <title>Alief Aditya | Personal Blog</title>
+    <title><%= title %> | Personal Blog</title>
+    <link
+      rel="shortcut icon"
+      type="image/jpg"
+      href="/public/img/planning.ico"
+    />
     <link rel="stylesheet" href="/public/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/public/css/unicons.css" />
     <link rel="stylesheet" href="/public/css/owl.carousel.min.css" />
@@ -21,7 +26,9 @@
     <!-- MENU -->
     <nav class="navbar navbar-expand-sm navbar-light p-3">
       <div class="container">
-        <a href="/" class="navbar-brand"><h4>ALIEF</h3></a>
+        <div>
+          <a href="/" class="navbar-brand"><h4>ALIEF</h4></a>
+        </div>
 
         <!-- <button
           class="navbar-toggler"
@@ -36,9 +43,9 @@
           <span class="navbar-toggler-icon"></span>
           <span class="navbar-toggler-icon"></span>
         </button> -->
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <!-- <ul class="navbar-nav mx-auto">
+        <!-- 
+        <div class="collapse navbar-collapse" id="navbarNav"> -->
+        <!-- <ul class="navbar-nav mx-auto">
             <li class="nav-item">
               <a href="#about" class="nav-link"
                 ><span data-hover="About">About</span></a
@@ -66,52 +73,52 @@
             </li>
           </ul> -->
 
-          <ul class="navbar-nav ml-lg-auto px-4">
-            <div class="ml-lg-4">
-              <div
-                class="color-mode d-lg-flex justify-content-center align-items-center"
-              >
-                <i class="color-mode-icon"></i>
-                Color mode
-              </div>
+        <!-- </div> -->
+        <ul class="navbar-nav ml-lg-auto px-4">
+          <div class="ml-lg-4">
+            <div
+              class="color-mode d-lg-flex justify-content-center align-items-center"
+            >
+              <i class="color-mode-icon"></i>
+              Color mode
             </div>
-          </ul>
-        </div>
-          <div>
-            <!-- dropdown -->
-            <link rel="stylesheet" href="/public/css/dropdown.css" />
-            <div class="select-menu">
-              <div class="select-btn">
-                <img
-                  src="https://png.pngtree.com/png-clipart/20190520/original/pngtree-vector-users-icon-png-image_4144740.jpg"
-                  alt="profile"
-                  class="profile"
-                />
-              </div>
-              <div class="auth" id="auth"></div>
-            </div>
-            <script>
-              const optionMenu = document.querySelector(".select-menu"),
-                selectBtn = optionMenu.querySelector(".select-btn"),
-                options = optionMenu.querySelectorAll(".option"),
-                sBtn_text = optionMenu.querySelector(".sBtn-text");
-
-              selectBtn.addEventListener("click", () =>
-                optionMenu.classList.toggle("active")
-              );
-
-              options.forEach((option) => {
-                option.addEventListener("click", () => {
-                  let selectedOption =
-                    option.querySelector(".option-text").innerText;
-                  sBtn_text.innerText = selectedOption;
-
-                  optionMenu.classList.remove("active");
-                });
-              });
-            </script>
-            <!-- dropdown end -->
           </div>
+        </ul>
+        <div>
+          <!-- dropdown -->
+          <link rel="stylesheet" href="/public/css/dropdown.css" />
+          <div class="select-menu">
+            <div class="select-btn">
+              <img
+                src="https://png.pngtree.com/png-clipart/20190520/original/pngtree-vector-users-icon-png-image_4144740.jpg"
+                alt="profile"
+                class="profile"
+              />
+            </div>
+            <div class="auth" id="auth"></div>
+          </div>
+          <script>
+            const optionMenu = document.querySelector(".select-menu"),
+              selectBtn = optionMenu.querySelector(".select-btn"),
+              options = optionMenu.querySelectorAll(".option"),
+              sBtn_text = optionMenu.querySelector(".sBtn-text");
+
+            selectBtn.addEventListener("click", () =>
+              optionMenu.classList.toggle("active")
+            );
+
+            options.forEach((option) => {
+              option.addEventListener("click", () => {
+                let selectedOption =
+                  option.querySelector(".option-text").innerText;
+                sBtn_text.innerText = selectedOption;
+
+                optionMenu.classList.remove("active");
+              });
+            });
+          </script>
+          <!-- dropdown end -->
+        </div>
       </div>
     </nav>
 

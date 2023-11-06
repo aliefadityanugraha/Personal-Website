@@ -10,6 +10,7 @@ module.exports = {
     res.status(200).render("category", {
       layout: "layouts/newadminlayout",
       category,
+      title: "Category",
     });
   },
   insert: async (req, res) => {

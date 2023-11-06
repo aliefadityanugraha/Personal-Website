@@ -120,9 +120,11 @@
       </div>
 
       <div class="formbold-form-btn-wrapper">
-        <button class="formbold-back-btn">Back</button>
-        <button class="btn btn-danger" onclick="clearInput()">Clear</button>
-        <button class="formbold-btn" type="submit">
+        <button class="formbold-back-btn rounded-pill">Back</button>
+        <button class="btn btn-danger rounded-pill" onclick="clearInput()">
+          Clear
+        </button>
+        <button class="formbold-btn rounded-pill" type="submit">
           Next Step
           <svg
             width="16"
@@ -176,13 +178,16 @@
           <td><%= e.category %></td>
           <td class="d-flex">
             <button
-              class="btn btn-warning btn-edit mx-1"
+              class="btn btn-warning btn-edit mx-1 btn-sm rounded-pill"
               onclick="edit(`<%- number-2 %>`)"
             >
               Edit
             </button>
             <form action="/delete-post/<%= e.id %>" method="get">
-              <button class="btn btn-danger btn-delete mx-1" type="submit">
+              <button
+                class="btn btn-danger btn-delete mx-1 btn-sm rounded-pill"
+                type="submit"
+              >
                 Delete
               </button>
             </form>

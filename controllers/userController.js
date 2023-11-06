@@ -18,12 +18,14 @@ module.exports = {
     res.status(200).render("login", {
       layout: "layouts/authlayout",
       message: req.flash("message"),
+      title: "Login",
     });
   },
   signUp: (req, res) => {
     res.status(200).render("signup", {
       layout: "layouts/authlayout",
       message: req.flash("message"),
+      title: "Sign Up",
     });
   },
   auth: (req, res) => {
