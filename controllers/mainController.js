@@ -10,12 +10,15 @@ const jwtConfig = require("../config/jwt");
 module.exports = {
   home: async (req, res) => {
     const posts = await Post.find().sort({ _id: -1 }).limit(4);
-    res.status(200).render("newhome", {
-      layout: "layouts/newlayout",
-      message: "ok",
-      posts,
-      title: "Home",
-    });
+    res
+      .status(200)
+      .header("ngrok-skip-browser-warning", "1231")
+      .render("newhome", {
+        layout: "layouts/newlayout",
+        message: "ok",
+        posts,
+        title: "Home",
+      });
   },
   account: async (req, res) => {
     const session = req.session;

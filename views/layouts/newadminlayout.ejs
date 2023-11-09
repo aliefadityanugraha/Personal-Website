@@ -11,6 +11,11 @@
     <meta name="description" content="Alief personal website" />
     <meta name="author" content="Alief Aditya Nugraha" />
     <title><%= title %> | Personal Blog</title>
+    <link
+      rel="shortcut icon"
+      type="image/jpg"
+      href="/public/img/planning.ico"
+    />
     <link rel="stylesheet" href="/public/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/public/css/unicons.css" />
     <link rel="stylesheet" href="/public/css/owl.carousel.min.css" />
@@ -19,54 +24,39 @@
     <script src="/public/js/jquery-3.3.1.min.js"></script>
   </head>
   <body>
-    <!-- MENU -->
-    <nav class="navbar navbar-expand-sm navbar-light">
+    <nav class="navbar navbar-expand-sm navbar-light p-3">
       <div class="container">
-         <a href="/" class="navbar-brand"><h4>ALIEF</h3></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto">
+        <a class="navbar-brand d-flex align-items-center" href="/">
+          <img
+            src="/public/img/planning.ico"
+            alt="Logo"
+            width="45"
+            height="45"
+            class="d-inline-block align-text-top"
+          />
+          <h3 class="px-4">ALIEF</h3>
+        </a>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="ajax-menu">
             <li class="nav-item">
-              <a href="/admin" class="nav-link"
-                ><span data-hover="Home">Home</span></a
-              >
+              <a class="nav-link" href="/admin">Dashboard</a>
             </li>
             <li class="nav-item">
-              <a href="/insert-post" class="nav-link"
-                ><span data-hover="Posts">Posts</span></a
-              >
+              <a class="nav-link" href="/insert-post">Posts</a>
             </li>
             <li class="nav-item">
-              <a href="/insert-category" class="nav-link"
-                ><span data-hover="Category">Category</span></a
-              >
+              <a class="nav-link" href="/insert-category">Category</a>
             </li>
             <li class="nav-item">
-              <a href="/administrator/insert-role" class="nav-link"
-                ><span data-hover="Role">Role</span></a
-              >
+              <a class="nav-link" href="/administrator/insert-role">Roles</a>
             </li>
             <li class="nav-item">
-              <a href="/administrator/user-management" class="nav-link"
-                ><span data-hover="Role">User</span></a
+              <a class="nav-link" href="/administrator/user-management"
+                >Users</a
               >
             </li>
           </ul>
-
-          <ul class="navbar-nav ml-lg-auto mx-3">
+          <ul class="navbar-nav ml-lg-auto px-4">
             <div class="ml-lg-4">
               <div
                 class="color-mode d-lg-flex justify-content-center align-items-center"
@@ -76,45 +66,45 @@
               </div>
             </div>
           </ul>
-
-          <ul class="navbar-nav">
-            <!-- dropdown -->
-            <link rel="stylesheet" href="/public/css/dropdown.css" />
-            <div class="select-menu">
-              <div class="select-btn">
-                <img
-                  src="https://png.pngtree.com/png-clipart/20190520/original/pngtree-vector-users-icon-png-image_4144740.jpg"
-                  alt="profile"
-                  class="profile"
-                />
-              </div>
-              <div class="auth" id="auth"></div>
-            </div>
-            <script>
-              const optionMenu = document.querySelector(".select-menu"),
-                selectBtn = optionMenu.querySelector(".select-btn"),
-                options = optionMenu.querySelectorAll(".option"),
-                sBtn_text = optionMenu.querySelector(".sBtn-text");
-
-              selectBtn.addEventListener("click", () =>
-                optionMenu.classList.toggle("active")
-              );
-
-              options.forEach((option) => {
-                option.addEventListener("click", () => {
-                  let selectedOption =
-                    option.querySelector(".option-text").innerText;
-                  sBtn_text.innerText = selectedOption;
-
-                  optionMenu.classList.remove("active");
-                });
-              });
-            </script>
-            <!-- dropdown end -->
-          </ul>
         </div>
+
+        <!-- dropdown -->
+        <link rel="stylesheet" href="/public/css/dropdown.css" />
+        <div class="select-menu">
+          <div class="select-btn">
+            <img
+              src="https://png.pngtree.com/png-clipart/20190520/original/pngtree-vector-users-icon-png-image_4144740.jpg"
+              alt="profile"
+              class="profile"
+            />
+          </div>
+          <div class="auth" id="auth"></div>
+        </div>
+        <script>
+          const optionMenu = document.querySelector(".select-menu"),
+            selectBtn = optionMenu.querySelector(".select-btn"),
+            options = optionMenu.querySelectorAll(".option"),
+            sBtn_text = optionMenu.querySelector(".sBtn-text");
+
+          selectBtn.addEventListener("click", () =>
+            optionMenu.classList.toggle("active")
+          );
+
+          options.forEach((option) => {
+            option.addEventListener("click", () => {
+              let selectedOption =
+                option.querySelector(".option-text").innerText;
+              sBtn_text.innerText = selectedOption;
+
+              optionMenu.classList.remove("active");
+            });
+          });
+        </script>
+        <!-- dropdown end -->
       </div>
     </nav>
+    <!-- script ajax menu -->
+    <script src="/public/js/ajax.dashboard.js"></script>
 
     <%- body %>
 
@@ -124,12 +114,12 @@
         <div class="row">
           <div class="col-lg-12 col-12">
             <p class="copyright-text text-center">
-              Copyright &copy; 2019 Company Name . All rights reserved
+              Copyright &copy; 2023 Alief Aditya . All rights reserved
             </p>
             <p class="copyright-text text-center">
               Designed by
-              <a rel="nofollow" href="https://www.facebook.com/tooplate"
-                >Tooplate</a
+              <a rel="nofollow" href="https://www.instagram.com/aliefaditya.n"
+                >Alief Aditya</a
               >
             </p>
           </div>
@@ -144,7 +134,5 @@
     <script src="/public/js/owl.carousel.min.js"></script>
     <script src="/public/js/smoothscroll.js"></script>
     <script src="/public/js/custom.js"></script>
-    <!-- script ajax menu -->
-    <script src="/public/js/ajax.js"></script>
   </body>
 </html>

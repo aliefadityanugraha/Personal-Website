@@ -32,6 +32,8 @@ Function :
       "jsonwebtoken": "^9.0.0",
       "method-override": "^3.0.0",
       "mongoose": "^7.2.3",
-      "multer": "^1.4.5-lts.1"
+      "multer": "^1.4.5-lts.1",
+      "nodemailer": "^6.9.5",
+      "validator": "^13.11.0"
       }
     }

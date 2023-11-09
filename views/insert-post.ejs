@@ -61,11 +61,16 @@
               placeholder="Alief Aditya Nugraha"
               id="author"
               class="formbold-form-input input-author"
-              value="Alief Aditya Nugraha"
               required
               readonly
             />
           </div>
+          <script>
+            const authorPost = document.querySelector(".username");
+            const authorInput = document.querySelector(".input-author");
+
+            authorInput.value = authorPost.innerHTML;
+          </script>
         </div>
 
         <div>
