@@ -3,7 +3,7 @@
 const characters =
   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-function generateRandomVal(length) {
+function generateRandomValue(length) {
   let result = "";
   const charactersLength = characters.length;
   for (let i = 0; i < length; i++) {
@@ -14,5 +14,5 @@ function generateRandomVal(length) {
 }
 
 module.exports = {
-  generateRandomVal,
+  generateRandomValue,
 };

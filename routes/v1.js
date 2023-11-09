@@ -3,6 +3,7 @@
 const express = require("express");
 const router = express.Router();
 
+// import controller
 const mainController = require("../controllers/mainController");
 const userController = require("../controllers/userController");
 const postController = require("../controllers/postController");
@@ -11,9 +12,11 @@ const roleController = require("../controllers/roleController");
 const accountController = require("../controllers/accountController");
 const resetPasswordController = require("../controllers/resetPasswordController");
 
-const { isLogin, isAdmin } = require("../middleware/authMidleware");
+// import midleware
+const { isLogin } = require("../middleware/authMidleware");
 const { isRole } = require("../middleware/roleMidleware");
 
+// declare main route
 router.get("/", mainController.home);
 router.get("/auth", userController.auth);
 router.get("/auth/login", userController.login);
@@ -23,6 +26,7 @@ router.post("/auth/signup", userController.save);
 router.get("/auth/get-reset-password", resetPasswordController.resetLinkView);
 router.post("/auth/get-reset-password", resetPasswordController.sendMail);
 
+// declare user route
 router.get("/account", isLogin, mainController.account);
 router.post("/profile-picture", accountController.uploadProfile);
 router.post("/edit-account", isLogin, accountController.editAccount);
@@ -35,6 +39,7 @@ router.post("/insert-post", isLogin, postController.insert);
 router.post("/edit-post", isLogin, postController.edit);
 router.get("/delete-post/:_id", isLogin, postController.delete);
 
+// declare post route
 router.get(
   "/insert-category",
   isLogin,
@@ -50,6 +55,7 @@ router.get(
   categoryController.delete
 );
 
+// declare role route
 router.get(
   "/administrator/insert-role",
   isLogin,
@@ -69,5 +75,6 @@ router.post(
   roleController.edit
 );
 
+// declare logout route
 router.get("/auth/logout", userController.logout);
 module.exports = router;

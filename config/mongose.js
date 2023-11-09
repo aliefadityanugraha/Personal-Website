@@ -3,11 +3,10 @@
 "use strict";
 
 var mongoose = require("mongoose");
-const Url = require("./urlMongodb");
+const url = require("./urlMongodb");
 
-const uri = Url;
 mongoose
-  .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("Connected to database in MongoDB cloud..."))
   .catch((error) => {
     console.log(error);

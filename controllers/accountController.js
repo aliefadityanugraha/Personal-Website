@@ -6,7 +6,6 @@ const cloudinary = require("../handler/cloudinary");
 const jwt = require("jsonwebtoken");
 const jwtConfig = require("../config/jwt");
 const User = require("../models/userModel");
-var validator = require("validator");
 
 module.exports = {
   uploadProfile: async (req, res) => {
@@ -31,15 +30,13 @@ module.exports = {
     }
   },
   editAccount: async (req, res) => {
-    if (validator.isEmail(req.body.email)) {
-      await User.updateOne(
-        { email: req.body.email },
-        {
-          name: req.body.name,
-          biography: req.body.biography,
-        }
-      );
-      res.status(200).redirect("/account");
-    }
+    await User.updateOne(
+      { email: req.body.email },
+      {
+        name: req.body.name,
+        biography: req.body.biography,
+      }
+    );
+    res.status(200).redirect("/account");
   },
 };

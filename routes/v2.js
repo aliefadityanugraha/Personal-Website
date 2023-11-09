@@ -12,7 +12,10 @@ const testController = require("../controllers/testController");
 const { isLogin, isAdmin } = require("../middleware/authMidleware");
 const { isRole } = require("../middleware/roleMidleware");
 
+// dashboard route
 router.get("/admin", isLogin, isRole(1), adminController.dashboard);
+
+// user management route
 router.get(
   "/administrator/user-management",
   isLogin,
@@ -35,7 +38,7 @@ router.get(
 
 // ajax
 router.post("/auth-info", mainController.ajax);
-// error handler
+// error handler 404
 router.get("/*", errorController.error404);
 
 module.exports = router;

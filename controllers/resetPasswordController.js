@@ -5,7 +5,7 @@
 const User = require("../models/userModel");
 const SendMail = require("../handler/sendMail");
 const ResetLink = require("../models/resetLinkModel");
-const { generateRandomVal } = require("../handler/generateRandomValue");
+const { generateRandomValue } = require("../handler/generateRandomValue");
 
 module.exports = {
   resetLinkView: (req, res) => {
@@ -21,7 +21,7 @@ module.exports = {
       req.flash("message", "Your Email Not Registered");
       res.status(200).redirect("/auth/get-reset-password");
     } else {
-      const randomValue = generateRandomVal(40);
+      const randomValue = generateRandomValue(40);
       const shareLink = `${req.protocol}://${req.get(
         "host"
       )}/auth/reset/${randomValue}`;

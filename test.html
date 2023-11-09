@@ -9,16 +9,23 @@
   </head>
   <body>
     <button class="notification">Notofication</button>
-    <script>
-      const Button = document.querySelector(".notification");
+    <script defer>
+      // const Button = document.querySelector(".notification");
 
-      Button.addEventListener("click", () => {
+      // Button.addEventListener("click", () => {
+      //   Notification.requestPermission().then((perm) => {
+      //     if (perm == "granted") {
+      //       new Notification("Example Notification");
+      //     }
+      //   });
+      // });
+      document.onload = () => {
         Notification.requestPermission().then((perm) => {
           if (perm == "granted") {
-            new Notification("Example Notification");
+            new Notification("Welcome");
           }
         });
-      });
+      };
     </script>
   </body>
 </html>

@@ -39,7 +39,4 @@
       event.preventDefault();
     });
   });
-
-  // TOOLTIP
-  // $(".social-links a").tooltip();
 })(jQuery);

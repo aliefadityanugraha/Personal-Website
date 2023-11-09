@@ -16,13 +16,4 @@ module.exports = {
       next();
     }
   },
-  isAdmin: (req, res, next) => {
-    const session = req.session;
-    const token = jwt.verify(session.token, jwtConfig.SECRET_KEY);
-    if (token.user.role === 2) {
-      next();
-    } else {
-      res.redirect("/");
-    }
-  },
 };
