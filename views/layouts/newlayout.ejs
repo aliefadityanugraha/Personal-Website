@@ -22,103 +22,78 @@
     <link rel="stylesheet" href="/public/css/owl.theme.default.min.css" />
     <link rel="stylesheet" href="/public/css/tooplate-style.css" />
   </head>
+
   <body>
     <!-- MENU -->
     <nav class="navbar navbar-expand-sm navbar-light p-3">
       <div class="container">
-        <div>
-          <a href="/" class="navbar-brand"><h4>ALIEF</h4></a>
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img
+            src="/public/img/planning.ico"
+            alt="Logo"
+            width="45"
+            height="45"
+            class="d-inline-block align-text-top"
+          />
+          <h3 class="px-4">ALIEF</h3>
+        </a>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Issues</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Marketplace</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Explore</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-lg-auto px-4">
+            <div class="ml-lg-4">
+              <div
+                class="color-mode d-lg-flex justify-content-center align-items-center"
+              >
+                <i class="color-mode-icon"></i>
+                Color mode
+              </div>
+            </div>
+          </ul>
         </div>
 
-        <!-- <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-        </button> -->
-        <!-- 
-        <div class="collapse navbar-collapse" id="navbarNav"> -->
-        <!-- <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a href="#about" class="nav-link"
-                ><span data-hover="About">About</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#note" class="nav-link"
-                ><span data-hover="Notes">Notes</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#project" class="nav-link"
-                ><span data-hover="Projects">Projects</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#resume" class="nav-link"
-                ><span data-hover="Resume">Resume</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#contact" class="nav-link"
-                ><span data-hover="Contact">Contact</span></a
-              >
-            </li>
-          </ul> -->
-
-        <!-- </div> -->
-        <ul class="navbar-nav ml-lg-auto px-4">
-          <div class="ml-lg-4">
-            <div
-              class="color-mode d-lg-flex justify-content-center align-items-center"
-            >
-              <i class="color-mode-icon"></i>
-              Color mode
-            </div>
+        <!-- dropdown -->
+        <link rel="stylesheet" href="/public/css/dropdown.css" />
+        <div class="select-menu">
+          <div class="select-btn">
+            <img
+              src="https://png.pngtree.com/png-clipart/20190520/original/pngtree-vector-users-icon-png-image_4144740.jpg"
+              alt="profile"
+              class="profile"
+            />
           </div>
-        </ul>
-        <div>
-          <!-- dropdown -->
-          <link rel="stylesheet" href="/public/css/dropdown.css" />
-          <div class="select-menu">
-            <div class="select-btn">
-              <img
-                src="https://png.pngtree.com/png-clipart/20190520/original/pngtree-vector-users-icon-png-image_4144740.jpg"
-                alt="profile"
-                class="profile"
-              />
-            </div>
-            <div class="auth" id="auth"></div>
-          </div>
-          <script>
-            const optionMenu = document.querySelector(".select-menu"),
-              selectBtn = optionMenu.querySelector(".select-btn"),
-              options = optionMenu.querySelectorAll(".option"),
-              sBtn_text = optionMenu.querySelector(".sBtn-text");
+          <div class="auth" id="auth"></div>
+        </div>
+        <script>
+          const optionMenu = document.querySelector(".select-menu"),
+            selectBtn = optionMenu.querySelector(".select-btn"),
+            options = optionMenu.querySelectorAll(".option"),
+            sBtn_text = optionMenu.querySelector(".sBtn-text");
 
-            selectBtn.addEventListener("click", () =>
-              optionMenu.classList.toggle("active")
-            );
+          selectBtn.addEventListener("click", () =>
+            optionMenu.classList.toggle("active")
+          );
 
-            options.forEach((option) => {
-              option.addEventListener("click", () => {
-                let selectedOption =
-                  option.querySelector(".option-text").innerText;
-                sBtn_text.innerText = selectedOption;
+          options.forEach((option) => {
+            option.addEventListener("click", () => {
+              let selectedOption =
+                option.querySelector(".option-text").innerText;
+              sBtn_text.innerText = selectedOption;
 
-                optionMenu.classList.remove("active");
-              });
+              optionMenu.classList.remove("active");
             });
-          </script>
-          <!-- dropdown end -->
-        </div>
+          });
+        </script>
+        <!-- dropdown end -->
       </div>
     </nav>
 
@@ -130,12 +105,12 @@
         <div class="row">
           <div class="col-lg-12 col-12">
             <p class="copyright-text text-center">
-              Copyright &copy; 2019 Company Name . All rights reserved
+              Copyright &copy; 2023 Alief Aditya . All rights reserved
             </p>
             <p class="copyright-text text-center">
               Designed by
-              <a rel="nofollow" href="https://www.facebook.com/tooplate"
-                >Tooplate</a
+              <a rel="nofollow" href="https://www.instagram.com/aliefaditya.n"
+                >Alief Aditya</a
               >
             </p>
           </div>

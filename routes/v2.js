@@ -12,7 +12,7 @@ const testController = require("../controllers/testController");
 const { isLogin, isAdmin } = require("../middleware/authMidleware");
 const { isRole } = require("../middleware/roleMidleware");
 
-router.get("/admin", isLogin, isRole(4), adminController.dashboard);
+router.get("/admin", isLogin, isRole(1), adminController.dashboard);
 router.get(
   "/administrator/user-management",
   isLogin,
