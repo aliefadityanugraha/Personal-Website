@@ -112,7 +112,7 @@ module.exports = {
     } else {
       req.flash(
         "message",
-        "Your Old Password Doest Match with your Password now"
+        "Your Old Password Doest Match with your old Password"
       );
       res.status(200).redirect("/account");
     }

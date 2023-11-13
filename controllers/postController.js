@@ -22,7 +22,7 @@ module.exports = {
       message: "ok",
       category,
       posts,
-      title: "Insert Post",
+      title: "Post Management",
     });
   },
   insert: (req, res) => {
@@ -51,7 +51,15 @@ module.exports = {
     );
     res.status(200).redirect("/insert-post");
   },
-  trash: async (req, res) => {},
+  trash: async (req, res) => {
+    await Post.updateOne(
+      { _id: req.body._id },
+      {
+        trash: true,
+      }
+    );
+    res.status(200).redirect("/insert-post");
+  },
   delete: async (req, res) => {
     await Post.findByIdAndDelete({
       _id: req.params._id,

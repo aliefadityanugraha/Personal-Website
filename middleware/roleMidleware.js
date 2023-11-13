@@ -3,7 +3,6 @@
 "use strict";
 
 const Role = require("../models/roleModel");
-const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const jwtConfig = require("../config/jwt");
 

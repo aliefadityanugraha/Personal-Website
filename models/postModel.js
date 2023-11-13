@@ -6,13 +6,20 @@ const mongoose = require("mongoose");
 
 const post = mongoose.Schema({
   title: String,
-  category: String,
+  category: {
+    type: String,
+    default: "Uncategorized",
+  },
   author: String,
   image: {
     type: String,
     default: "https://placehold.co/400/png",
   },
   content: String,
+  trash: {
+    type: Boolean,
+    default: false,
+  },
   created_at: {
     type: Date,
     default: Date.now,

@@ -156,6 +156,7 @@
   </div>
 </div>
 
+<!-- datatables -->
 <link
   rel="stylesheet"
   type="text/css"
@@ -163,7 +164,6 @@
 />
 <section>
   <div class="container">
-    <!-- datatables -->
     <table class="table table-borderless table-hover datatable">
       <thead>
         <tr>
@@ -201,7 +201,6 @@
         <% }) %>
       </tbody>
     </table>
-    <!-- datatable end -->
   </div>
 </section>
 <script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
@@ -210,6 +209,7 @@
     $(".datatable").DataTable();
   });
 </script>
+<!-- datatable end -->
 <div class="data" hidden>
   <% posts.forEach(e => { %>
   <div class="post">

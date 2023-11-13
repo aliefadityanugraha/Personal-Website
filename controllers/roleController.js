@@ -3,7 +3,6 @@
 "use strict";
 
 const Role = require("../models/roleModel");
-const validator = require("validator");
 
 module.exports = {
   insertView: async (req, res) => {
@@ -73,5 +72,5 @@ module.exports = {
       _id: req.params._id,
     }).exec();
     res.redirect("/administrator/insert-role");
-  },
+  },  
 };
